@@ -1,5 +1,7 @@
 package org.codehaus.labyrinth.components;
 
+import net.sf.hibernate.Session;
+
 import org.codehaus.labyrinth.DatabaseException;
 
 /**
@@ -13,4 +15,5 @@ public interface PersistenceComponent {
 
     void configureORLayer() throws Exception;
     public Object load(Class clazz, Integer id)throws DatabaseException;
+    
 }
