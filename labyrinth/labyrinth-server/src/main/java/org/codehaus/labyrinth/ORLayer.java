@@ -120,6 +120,11 @@ public class ORLayer
 
     public void save(Object o) throws DatabaseException
     {
+        save(session, o);
+    }
+
+    public static void save(Session session, Object o) throws DatabaseException
+    {
         try
         {
             Transaction t = session.beginTransaction();

@@ -11,6 +11,7 @@ import org.apache.avalon.framework.service.ServiceManager;
 import org.apache.velocity.Template;
 import org.apache.velocity.context.Context;
 import org.codehaus.labyrinth.DatabaseException;
+import org.codehaus.labyrinth.ORLayer;
 import org.codehaus.labyrinth.components.PersistenceComponent;
 import org.codehaus.labyrinth.om.Project;
 
@@ -20,7 +21,8 @@ import org.codehaus.labyrinth.om.Project;
  */
 public class ManageProjectServlet extends LabyrinthServlet
 {
-
+    /** log4j logger */
+    private static final org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger.getLogger(ManageProjectServlet.class);
     /* (non-Javadoc)
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
      */
@@ -33,6 +35,7 @@ public class ManageProjectServlet extends LabyrinthServlet
             {
                 p = new Project();
             }
+            LOGGER.info("saving");
             p.setUrl(arg0.getParameter("url"));
 
             ServiceManager sm = LabyrinthServlet.getServiceManager(arg0.getSession().getServletContext());
