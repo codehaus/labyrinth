@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+    <display-name>Overlord</display-name>
+    <description>
+		A Java Project Aggregator                
+    </description>
+	
+	<listener>
+		<listener-class>
+ 			org.codehaus.labyrinth.listener.AppContextListener
+	    </listener-class>
+	</listener>
+	
+	
+    <servlet>
+            <servlet-name>AdvancedSearchServlet</servlet-name>
+            <servlet-class>com.walding.overlord.server.servlets.AdvancedSearchServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+            <servlet-name>ContainerStatusServlet</servlet-name>
+            <servlet-class>org.codehaus.labyrinth.servlets.ContainerStatusServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+            <servlet-name>IndexServlet</servlet-name>
+            <servlet-class>com.walding.overlord.server.servlets.IndexServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+            <servlet-name>LicenseViewServlet</servlet-name>
+            <servlet-class>com.walding.overlord.server.servlets.LicenseViewServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+            <servlet-name>ManageProjectsServlet</servlet-name>
+            <servlet-class>com.walding.overlord.server.servlets.ManageProjectsServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+            <servlet-name>ProjectViewServlet</servlet-name>
+            <servlet-class>com.walding.overlord.server.servlets.ProjectViewServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+            <servlet-name>SearchServlet</servlet-name>
+            <servlet-class>com.walding.overlord.server.servlets.SearchServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+            <servlet-name>ViewResourceServlet</servlet-name>
+            <servlet-class>com.walding.overlord.server.servlets.ViewResourceServlet</servlet-class>
+    </servlet>
+    
+    
+    
+    <servlet-mapping>
+      <servlet-name>AdvancedSearchServlet</servlet-name>
+      <url-pattern>/servlet/advancedsearch</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>ContainerStatusServlet</servlet-name>
+      <url-pattern>/servlet/ContainerStatusServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+      <servlet-name>IndexServlet</servlet-name>
+      <url-pattern>/servlet/index</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+      <servlet-name>LicenseViewServlet</servlet-name>
+      <url-pattern>/servlet/licenseview</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+      <servlet-name>ManageProjectsServlet</servlet-name>
+      <url-pattern>/servlet/manageprojects</url-pattern>
+    </servlet-mapping>
+
+ 	<servlet-mapping>
+      <servlet-name>ProjectViewServlet</servlet-name>
+      <url-pattern>/servlet/projectview</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+      <servlet-name>SearchServlet</servlet-name>
+      <url-pattern>/servlet/search</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+      <servlet-name>ViewResourceServlet</servlet-name>
+      <url-pattern>/servlet/viewresource</url-pattern>
+    </servlet-mapping>
+ 
+
+        
+	<welcome-file-list> 
+		<welcome-file>
+    		index.html
+    	</welcome-file>
+    </welcome-file-list> 
+
+        
+	<!-- This blocks access to the invoker -->
+    <!--security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Montage</web-resource-name>
+            <url-pattern>/servlet/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ICANTBELIEVEITSNOTBUTTER</role-name>
+        </auth-constraint>
+    </security-constraint-->
+    
+
+</web-app>

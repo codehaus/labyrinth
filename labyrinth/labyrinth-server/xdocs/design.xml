@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<document>
+
+  <properties>
+    <title>Montage</title>
+    <author email="montage@walding.com">Ben Walding</author>
+  </properties>
+
+  <body>
+
+    
+    
+    <section name="Component 1 - Ferret">
+    
+      <p>    	
+      	The ferret is solely responsible for seeking out, downloading and
+      	managing the timeliness of all resources.
+      </p>
+      
+      <p>
+      	Responsibilities include:
+      	<ul>
+      		<li>Keeping data up-to-date</li>
+      		<li>Validating documents</li>
+      	</ul>
+	  </p>    	
+    </section>
+    
+    <section name="Component 2 - Librarian">
+    
+      <p>    	
+      	The librarian is responsible for indexing and providing access to data 
+      	(from an internal point of view).  The user will typically only see another
+      	front-end bolted onto the the front of the librarian
+      </p>
+      
+      <p>
+      	Responsibilities include:
+      	<ul>
+      		<li>Submitting jobs to the indexing engine (which is within the librarian)</li>
+      		<li>Indexing</li>
+      	</ul>
+	  </p>    	
+    </section>
+    
+    <section name="Component 3 - Presentation">
+    
+      <p>    	
+      	The presentation layer is responsible for providing an http front end
+      	to the data contained within the Overlord.
+      </p>
+      
+      <p>
+      	Responsibilities include:
+      	<ul>
+      		<li>Web front end</li>
+      		<li>Web service interface</li>
+      		<li>Several raw interfaces</li>
+      	</ul>
+	  </p>    	
+    </section>
+    
+
+
+  </body>
+</document>

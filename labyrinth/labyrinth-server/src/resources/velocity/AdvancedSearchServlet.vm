@@ -1,0 +1,66 @@
+#set ($title = "Advanced Search")
+#includeHeader()
+                  
+	<form method="GET" action="advancedsearch">
+		<textarea style="width:100%" name="query" >$!{query}</textarea>
+		<br/>
+		<input type="submit" value="Search"> 
+	</form>
+	
+	<div style="border: 1px solid black; padding: 3px; font-size: 7pt">
+	Search Terms<br/>
+	  org: Organization 
+	| artifactId: Artifact ID
+	| developer: Developer Name
+	| license: License Name
+	| search: Artifact ID / Description
+	| ?</div>
+	<br/>
+	
+	#if ($projects && $projects.size() > 0)
+	<table style="border: 1px solid black">
+		<tr class="a" ><th>ArtifactID</th><th>Description</th>
+	#foreach ($project in $projects)
+		<tr class="$rowtoggler.Next">
+			<td><a href="projectview?artifactId=$project.ArtifactId">$project.ArtifactId</a></td>
+			<td>$project.Description</td>
+		</tr>
+	#end
+	</table>
+	#else
+		#if ($query)
+			No projects found
+		#else
+			Please submit your query 
+		#end
+	#end
+	
+
+<div class="h3">
+<h3>Examples</h3>
+$rowtoggler.reset()
+<table style="margin:10px 10px; border: 1px solid black">
+	<tr class="$rowtoggler.Next">
+		<th>Search Term</th>
+		<th>Description</th>
+	</tr>
+	<tr class="$rowtoggler.Next">
+		<td>org:apache</td><td>Searches for all projects with an organisation with "apache" in it</td>
+	</tr>
+	<tr class="$rowtoggler.Next">
+		<td>license:gpl</td><td>Searches for all projects with a license name with "GPL" in it</td>
+	</tr>
+	<tr class="$rowtoggler.Next">
+		<td>content:apache</td><td>Searches for all projects with "apache" in artifact ID or description</td>
+	</tr>
+	<tr class="$rowtoggler.Next">
+		<td>developer:bob</td><td>Searches for all projects with "bob" in the developer name</td>
+	</tr>		
+</table>
+</div>
+
+<a href="http://jakarta.apache.org/lucene/docs/queryparsersyntax.html">More information on the query syntax</a>
+<br/><br/>
+<div style="text-align:right"><font size="-1"><i>search powered by</i></font> <a href="http://jakarta.apache.org/lucene/"><img src="../images/lucene_green_100.png" alt="Lucene" border="0" /></a></center>
+
+#includeFooter()

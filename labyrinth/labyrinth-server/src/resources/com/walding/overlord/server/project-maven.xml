@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project>
+
+  <pomVersion>3</pomVersion>
+  <id>maven</id>
+  <name>Maven</name>
+  <currentVersion>1.0-beta-8</currentVersion>
+  <organization>
+    <name>Apache Software Foundation</name>
+    <url>http://jakarta.apache.org/</url>
+    <logo>/images/jakarta-logo-blue.gif</logo>
+  </organization>
+  <inceptionYear>2001</inceptionYear>
+  <package>org.apache.maven</package>
+  <logo>/images/maven.jpg</logo>
+  
+  <!-- Gump integration -->
+  <gumpRepositoryId>jakarta</gumpRepositoryId>
+
+  <description>
+    Maven is a project management and project comprehension tool. Maven
+    is based on the concept of a project object model: builds, documentation
+    creation, site publication, and distribution publication are all
+    controlled from the project object model. Maven also provides tools
+    to create source metrics, change logs based directly on source
+    repository, and source cross-references.
+  </description>
+
+  <shortDescription>Java Project Management Tools</shortDescription>
+
+  <url>http://jakarta.apache.org/turbine/${pom.id}/</url>
+  <issueTrackingUrl>http://jira.werken.com/BrowseProject.jspa?id=10030</issueTrackingUrl>
+  <siteAddress>jakarta.apache.org</siteAddress>
+  <siteDirectory>/www/jakarta.apache.org/turbine/maven/</siteDirectory>
+  <distributionDirectory>/www/jakarta.apache.org/builds/jakarta-turbine-maven/</distributionDirectory>
+
+  <repository>
+    <connection>scm:cvs:pserver:anoncvs@cvs.apache.org:/home/cvspublic:jakarta-turbine-maven:anoncvs</connection>
+    <developerConnection>scm:cvs:ext:${maven.username}@cvs.apache.org:/home/cvs:jakarta-turbine-maven</developerConnection>
+    <url>http://cvs.apache.org/viewcvs/jakarta-turbine-maven/</url>
+  </repository>
+
+  <versions>
+    <version>
+      <id>b1</id>
+      <name>1.0-b1</name>
+      <tag>MAVEN_1_0_B1</tag>
+    </version>
+    <version>
+      <id>b2</id>
+      <name>1.0-b2</name>
+      <tag>MAVEN_1_0_B2</tag>
+    </version>
+    <version>
+      <id>b3</id>
+      <name>1.0-b3</name>
+      <tag>MAVEN_1_0_B3</tag>
+    </version>
+    <version>
+      <id>b4</id>
+      <name>1.0-b4</name>
+      <tag>MAVEN_1_0_B4</tag>
+    </version>
+    <version>
+      <id>b5</id>
+      <name>1.0-beta-5</name>
+      <tag>MAVEN_1_0_B5</tag>
+    </version>
+    <version>
+      <id>b6</id>
+      <name>1.0-beta-6</name>
+      <tag>MAVEN_1_0_B6</tag>
+    </version>
+    <version>
+      <id>b7</id>
+      <name>1.0-beta-7</name>
+      <tag>MAVEN_1_0_B7</tag>
+    </version>
+    <version>
+      <id>b8</id>
+      <name>1.0-beta-8</name>
+      <tag>HEAD</tag>
+    </version>
+  </versions>
+
+  <branches>
+  </branches>
+
+  <mailingLists>
+    <mailingList>
+      <name>Maven User List</name>
+      <subscribe>turbine-maven-user-subscribe@jakarta.apache.org</subscribe>
+      <unsubscribe>turbine-maven-user-unsubscribe@jakarta.apache.org</unsubscribe>
+      <archive>http://nagoya.apache.org/eyebrowse/SummarizeList?listName=turbine-maven-user@jakarta.apache.org</archive>
+    </mailingList>
+    <mailingList>
+      <name>Maven Developer List</name>
+      <subscribe>turbine-maven-dev-subscribe@jakarta.apache.org</subscribe>
+      <unsubscribe>turbine-maven-dev-unsubscribe@jakarta.apache.org</unsubscribe>
+      <archive>http://nagoya.apache.org/eyebrowse/SummarizeList?listName=turbine-maven-dev@jakarta.apache.org</archive>
+    </mailingList>
+  </mailingLists>
+
+  <developers>
+
+    <developer>
+      <name>Juancarlo Anez</name>
+      <id>juanco</id>
+      <email>juanco@apache.org</email>
+      <organization></organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>Stephane Bailliez</name>
+      <id>sbailliez</id>
+      <email>sbailliez@apache.org</email>
+      <organization></organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>Jeff Brekke</name>
+      <id>brekke</id>
+      <email>brekke@apache.org</email>
+      <organization></organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>Tom Copeland</name>
+      <id>tcopeland</id>
+      <email>tcopeland@apache.org</email>
+      <organization>InfoEther</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>Eric Dobbs</name>
+      <id>dobbs</id>
+      <email>eric@dobbse.net</email>
+      <organization></organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>dIon Gillard</name>
+      <id>dion</id>
+      <email>dion@multitask.com.au</email>
+      <organization>Multitask Consulting</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>Pete Kazmier</name>
+      <id>kaz</id>
+      <email>pete-apache-dev@kazmier.com</email>
+      <organization></organization>
+      <roles>
+        <role>Documentation</role>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>Peter Lynch</name>
+      <id>plynch</id>
+      <email>plynch@apache.org</email>
+      <organization></organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>Glenn McAllister</name>
+      <id>glennm</id>
+      <email>glenn@somanetworks.com</email>
+      <organization>SOMA Networks, Inc.</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>Bob McWhirter</name>
+      <id>werken</id>
+      <email>bob@werken.com</email>
+      <organization>The Werken Company</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>Geir Magnusson Jr.</name>
+      <id>geirm</id>
+      <email>geirm@optonline.net</email>
+      <organization>Independent (DVSL Maven)</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>Vincent Massol</name>
+      <id>vmassol</id>
+      <email>vmassol@octo.com</email>
+      <organization>Octo Technology</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>St?phane Mor</name>
+      <id>smor</id>
+      <email>stephanemor@yahoo.fr</email>
+      <organization>Hasgard Syst?mes et R?seaux</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>Daniel Rall</name>
+      <id>dlr</id>
+      <email>dlr@finemaltcoding.com</email>
+      <organization>CollabNet, Inc.</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>Kurt Schrader</name>
+      <id>kschrader</id>
+      <email>kschrader@karmalab.org</email>
+      <organization>University of Michigan</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+      <url>http://karmalab.org/~kschrader/</url>
+    </developer>
+
+    <developer>
+      <name>James Strachan</name>
+      <id>jstrachan</id>
+      <email>james_strachan@yahoo.co.uk</email>
+      <organization>Spiritsoft</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>James Taylor</name>
+      <id>jtaylor</id>
+      <email>james@jamestaylor.org</email>
+      <organization></organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>Emmanuel Venisse</name>
+      <id>evenisse</id>
+      <email>evenisse@ifrance.com</email>
+      <organization>Fi System</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>Jason van Zyl</name>
+      <id>jvanzyl</id>
+      <email>jason@zenplex.com</email>
+      <organization>Zenplex</organization>
+      <roles>
+        <role>Architect</role>
+        <role>Release Manager</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <name>Ben Walding</name>
+      <id>bwalding</id>
+      <email>jakarta@walding.com</email>
+      <organization></organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+
+  </developers>
+
+  <contributors>
+    <contributor>
+      <name>Martin van dem Bemt</name>
+      <email>mvdb@mvdb.com</email>
+    </contributor>
+
+    <contributor>
+      <name>Nathan Coast</name>
+      <email>nathan.coast@blueyonder.co.uk</email>
+    </contributor>
+    
+    <contributor>
+      <name>Martin Cooper</name>
+      <email>martin.cooper@tumbleweed.com</email>
+    </contributor>
+
+    <contributor>
+      <name>James CE Johnson</name>
+      <email>jcej@tragus.org</email>
+    </contributor>
+
+    <contributor>
+      <name>Mark Langley</name>
+      <email>mlangley@casebank.com</email>
+    </contributor>
+
+    <contributor>
+      <name>Brian Leonard</name>
+      <email>brian@brainslug.com</email>
+    </contributor>
+
+    <contributor>
+      <name>Michael McCallum</name>
+      <email>gholam@apache.org</email>
+    </contributor>
+    
+    <contributor>
+      <name>Markus M. May</name>
+      <email>mmay@javafreedom.org</email>
+    </contributor>
+
+    <contributor>
+      <name>Tom Palmer</name>
+      <email>tomp@uk.uu.net</email>
+    </contributor>
+
+    <contributor>
+      <name>Brett Porter</name>
+      <email>bporter@f2network.com.au</email>
+    </contributor>
+
+    <contributor>
+      <name>Kuisong Tong</name>
+      <email>Kuisong.Tong@vtradex.com</email>
+    </contributor>
+
+  </contributors>
+
+  <!-- Need to mark these as compile-time/run-time -->
+
+  <dependencies>
+    <!-- leave dom4j as the first entry or the tests fail -->
+    <dependency>
+      <id>dom4j</id>
+      <version>1.4-dev-8</version>
+      <url>http://www.dom4j.org/</url>
+      <properties>
+        <description>ouch</description>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <id>ant</id>
+      <version>1.5.1</version>
+      <url>http://ant.apache.org/</url>
+    </dependency>
+
+    <dependency>
+      <groupId>ant</groupId>
+      <artifactId>ant-optional</artifactId>
+      <version>1.5.1</version>
+      <url>http://jakarta.apache.org/ant/</url>
+    </dependency>
+
+    <dependency>
+      <id>commons-betwixt</id>
+      <version>1.0-beta-1.20030111.103454</version>
+      <url>http://jakarta.apache.org/commons/betwixt/</url>
+    </dependency>
+
+    <dependency>
+      <id>commons-digester</id>
+      <version>1.2</version>
+      <url>http://jakarta.apache.org/commons/digester.html</url>
+    </dependency>
+
+    <dependency>
+      <id>commons-jelly</id>
+      <version>SNAPSHOT</version>
+      <url>http://jakarta.apache.org/commons/sandbox/jelly/</url>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-jelly</groupId>
+      <artifactId>commons-jelly-tags-ant</artifactId>
+      <version>SNAPSHOT</version>
+      <url>http://jakarta.apache.org/commons/sandbox/jelly/tags/ant/</url>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-jelly</groupId>
+      <artifactId>commons-jelly-tags-define</artifactId>
+      <version>SNAPSHOT</version>
+      <url>http://jakarta.apache.org/commons/sandbox/jelly/tags/define/</url>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-jelly</groupId>
+      <artifactId>commons-jelly-tags-util</artifactId>
+      <version>SNAPSHOT</version>
+      <url>http://jakarta.apache.org/commons/sandbox/jelly/tags/util/</url>
+    </dependency>
+
+    <dependency>
+      <id>commons-graph</id>
+      <version>0.8.1</version>
+      <url>http://jakarta.apache.org/commons/sandbox/graph/</url>
+    </dependency>
+
+    <dependency>
+      <id>commons-jexl</id>
+      <version>1.0-beta-1</version>
+      <url>http://jakarta.apache.org/commons/sandbox/jexl/</url>
+    </dependency>
+
+    <dependency>
+      <id>commons-logging</id>
+      <version>1.0.1</version>
+      <url>http://jakarta.apache.org/commons/logging.html</url>
+    </dependency>
+
+    <dependency>
+      <id>werkz</id>
+      <version>1.0-beta-6</version>
+      <url>http://werkz.sourceforge.net/</url>
+    </dependency>
+
+    <!-- Runtime dependencies -->
+    <dependency>
+      <id>commons-beanutils</id>
+      <version>SNAPSHOT</version>
+      <url>http://jakarta.apache.org/commons/</url>
+    </dependency>
+
+    <dependency>
+      <id>commons-cli</id>
+      <version>1.0-beta-2</version>
+      <url>http://jakarta.apache.org/commons/cli/</url>
+    </dependency>
+
+    <dependency>
+      <id>commons-collections</id>
+      <version>2.1</version>
+      <url>http://jakarta.apache.org/commons/</url>
+    </dependency>
+
+    <dependency>
+      <id>commons-grant</id>
+      <version>1.0-beta-4</version>
+      <url>http://jakarta.apache.org/commons/sandbox/grant/</url>
+    </dependency>
+
+    <dependency>
+      <id>commons-io</id>
+      <version>0.2-dev.20020614.122300</version>
+      <url>http://jakarta.apache.org/commons/</url>
+    </dependency>
+
+    <dependency>
+      <id>commons-lang</id>
+      <version>1.0-b1.1</version>
+      <url>http://jakarta.apache.org/commons/</url>
+    </dependency>
+
+    <dependency>
+      <id>commons-util</id>
+      <version>SNAPSHOT</version>
+      <url>http://jakarta.apache.org/commons/</url>
+    </dependency>
+
+    <dependency>
+      <id>forehead</id>
+      <version>1.0-beta-4</version>
+    </dependency>
+    
+    <!--
+    <dependency>
+      <id>classworlds</id>
+      <version>1.0-beta-3</version>
+    </dependency>
+    -->
+ 
+    <dependency>
+      <id>logkit</id>
+      <version>1.0.1</version>
+      <url>http://jakarta.apache.org/avalon/logkit/</url>
+    </dependency>
+
+    <dependency>
+      <id>log4j</id>
+      <version>1.1.3</version>
+      <url>http://jakarta.apache.org/log4j/</url>
+    </dependency>
+
+    <dependency>
+      <id>velocity</id>
+      <version>1.3</version>
+      <url>http://jakarta.apache.org/velocity/</url>
+    </dependency>
+
+    <dependency>
+      <id>which</id>
+      <version>1.0</version>
+      <url>http://cvs.apache.org/viewcvs.cgi/xml-commons/java/src/org/apache/env/</url>
+    </dependency>
+
+<!-- this is a dependency, but as the classes ship with ant, bootstrap will
+     fail with linkage errors if it's included and the junit tests are not
+     forked
+-->
+
+    <dependency>
+      <id>xml-apis</id>
+      <version>1.0.b2</version>
+      <url>http://xml.apache.org/xerces2-j/</url>
+    </dependency>
+
+    <dependency>
+      <id>xerces</id>
+      <version>2.2.1</version>
+      <url>http://xml.apache.org/xerces2-j/</url>
+    </dependency>
+    
+  </dependencies>
+
+  <build>
+    <nagEmailAddress>turbine-maven-dev@jakarta.apache.org</nagEmailAddress>
+    <sourceDirectory>src/java</sourceDirectory>
+    <unitTestSourceDirectory>src/test/java</unitTestSourceDirectory>
+
+    <unitTest>
+      <includes>
+        <include>**/*Test.java</include>
+      </includes>
+      <excludes>
+        <exclude>**/RepositoryTest.java</exclude>
+        <exclude>**/JAXPTest.java</exclude>
+      </excludes>
+    </unitTest>
+
+    <resources>
+      <resource>
+        <directory>src/conf</directory>
+        <includes>
+          <include>*.xsd</include>
+          <include>*.dtd</include>
+          <include>*.mod</include>
+          <include>log4j.properties</include>
+          <include>driver.jelly</include>
+          <include>driver.properties</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/messages</directory>
+        <targetPath>org/apache/maven/messages</targetPath>
+        <includes>
+          <include>messages*.properties</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
+
+  <!-- For maven internal testing -->
+
+  <properties>
+    <testName>testValue</testName>
+    <pomProperty>${pomProperty}</pomProperty>
+  </properties>
+
+  <reports>
+    <!--
+     |
+     | These should all be completely self contained. You should be able
+     | to generate each of them individually without needing the final
+     | xdoc transformation.
+     |
+     | Each report plugin with it's POM and plugin.jelly logic should
+     | contain everything needed to produced the report.
+     |
+    -->
+    
+    <report>maven-jdepend-plugin</report>
+    <report>maven-checkstyle-plugin</report>
+    <report>maven-changelog-plugin</report>
+    <report>maven-file-activity-plugin</report>
+    <report>maven-developer-activity-plugin</report>
+    <report>maven-javadoc-plugin</report>
+    <report>maven-jxr-plugin</report>
+    <report>maven-junit-report-plugin</report>
+    <report>maven-tasklist-plugin</report>
+  </reports>
+
+</project>
+

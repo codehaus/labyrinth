@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<project>
+  <pomVersion>3</pomVersion>
+  
+  <id>labyrinth</id>
+  <name>Overlord - A Java project aggregator</name>
+  <currentVersion>1.0-dev</currentVersion>
+  <organization>
+    <name>Walding Consulting Services</name>
+    <url></url>
+    <logo></logo>
+  </organization>
+  <inceptionYear>2003</inceptionYear>
+  <siteAddress>projects.walding.com</siteAddress>
+  <siteDirectory>/var/www/projects.walding.com/html/overlord</siteDirectory>
+  <package>com.walding.overlord</package>
+  <description>Overlord is a project aggregator that brings together all
+  	Mavenized projects
+  </description>
+  <logo>/images/overlord.png</logo>
+  	
+  <repository>
+    <connection>
+      scm:cvs:pserver:anoncvs@cvs.walding.com:/home/cvs:overlord
+    </connection>
+    <url>
+      http://cvs.walding.com/viewcvs/overlord/
+    </url>
+  </repository>
+
+  <dependencies>
+  
+    <dependency>
+      <id>com.walding</id>
+      <version>1.0</version>
+      <properties><war.bundle>true</war.bundle></properties>
+    </dependency>
+    
+    <dependency>
+      <id>dom4j</id>
+      <version>1.4-dev</version>
+      <properties><war.bundle>true</war.bundle></properties>
+    </dependency>
+
+	<dependency>
+      <id>commons-jxpath</id>
+      <version>1.1</version>
+      <properties><war.bundle>true</war.bundle></properties>
+    </dependency>
+
+	<dependency>
+      <id>jetty</id>
+      <version>4.2.9</version>
+    </dependency>
+
+	<dependency>
+      <id>commons-collections</id>
+      <version>2.1</version>
+      <properties><war.bundle>true</war.bundle></properties>
+    </dependency>
+    
+    <dependency>
+      <id>log4j</id>
+      <version>1.2.7</version>
+      <properties><war.bundle>true</war.bundle></properties>
+    </dependency>
+
+    <dependency>
+      <id>commons-lang</id>
+      <version>1.0</version>
+      <properties><war.bundle>true</war.bundle></properties>
+    </dependency>
+
+    <dependency>
+      <id>avalon-framework</id>
+      <version>4.1.4</version>
+      <properties><war.bundle>true</war.bundle></properties>
+    </dependency>
+
+
+    <dependency>
+      <id>hibernate</id>
+      <version>2.0-final</version>
+      <properties><war.bundle>true</war.bundle></properties>
+    </dependency>
+
+
+    <dependency>
+      <id>plexus</id>
+      <version>0.6</version>
+      <properties><war.bundle>true</war.bundle></properties>
+    </dependency>
+    
+    <dependency>
+      <id>servletapi</id>
+      <version>2.3</version>
+    </dependency>
+    
+    <dependency>
+      <id>velocity</id>
+      <version>1.3</version>
+      <properties><war.bundle>true</war.bundle></properties>
+    </dependency>
+    
+    <dependency>
+      <id>prevayler</id>
+      <version>1.02.001</version>
+      <properties><war.bundle>true</war.bundle></properties>
+    </dependency>
+    
+  </dependencies>
+
+  <build>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    
+
+    <unitTestSourceDirectory>src/test/java</unitTestSourceDirectory>
+    
+    <!-- Unit test cases -->
+    <unitTest>
+		<resources><resource>
+			<directory>src/test/java</directory>
+			<includes><include>**/*</include></includes>
+			<excludes><exclude>**/*.java</exclude></excludes>
+		</resource></resources>
+		<includes>
+			<include>**/*Test.java</include>
+		</includes>
+	</unitTest>
+              
+    <resources>
+      <resource>    	
+				<directory>src/main/java</directory>
+				<includes><include>**/*</include></includes>
+				<excludes><exclude>**/*.java</exclude></excludes>
+	  </resource>
+      <resource>    	
+				<directory>src/main/resources</directory>
+				<includes><include>velocity/**/*</include></includes>
+	  </resource>
+    </resources>
+   
+  </build>
+  
+  
+</project>
+

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<document>
+
+  <properties>
+    <title>Overlord</title>
+    <author email="bwalding@apache.org">Ben Walding</author>
+  </properties>
+
+  <body>
+    
+    <section name="Unresolved Problems">
+    
+      <ul>
+    	<li>
+    		Unable to load a project which extends another using a URL
+    		<br/>
+    		The project loader depends on physical files which is no use for 
+    		remote projects.
+    	</li>
+    	<li>
+	    	There are going to be ID collisions through genuine confusion / malice / accident.
+	    	<br/>
+	    	We need to start considering how collisions will be handled by Maven and
+	    	what kind of namespace we want to use. For now, make Overlord less
+	    	dependent on the ID being a primary key.
+	    </li>
+	  </ul>    	
+    	
+    </section>
+    
+    <section name="Resolved Problems">
+    
+	</section>
+
+  </body>
+</document>
