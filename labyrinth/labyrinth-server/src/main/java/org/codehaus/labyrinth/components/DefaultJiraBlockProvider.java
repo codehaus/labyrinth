@@ -7,13 +7,17 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+
+import net.sf.hibernate.HibernateException;
 
 import org.apache.avalon.framework.activity.Disposable;
 import org.apache.avalon.framework.service.ServiceException;
 import org.apache.avalon.framework.service.ServiceManager;
 import org.apache.avalon.framework.service.Serviceable;
 import org.codehaus.labyrinth.Issue;
-import org.codehaus.labyrinth.om.base.BaseProject;
+import org.codehaus.labyrinth.om.ProjectBlock;
+import org.codehaus.labyrinth.om.peers.ProjectBlockPeer;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -36,11 +40,11 @@ public class DefaultJiraBlockProvider implements JiraBlockProvider, Serviceable,
         org.apache.log4j.Logger.getLogger(DefaultJiraBlockProvider.class);
 
     private ServiceManager sm;
-    public int getIssueCount(BaseProject project)
+    public int getIssueCount(ProjectBlock projectBlock)
     {
         try
         {
-            Document document = getIssueDocument(project);
+            Document document = getIssueDocument(projectBlock);
             List l = document.selectNodes("//item");
             return l.size();
         }
@@ -51,7 +55,7 @@ public class DefaultJiraBlockProvider implements JiraBlockProvider, Serviceable,
         }
     }
 
-    public List getIssues(BaseProject project)
+    public List getIssues(ProjectBlock project)
     {
         try
         {
@@ -82,15 +86,18 @@ public class DefaultJiraBlockProvider implements JiraBlockProvider, Serviceable,
         }
     }
 
-    public Document getIssueDocument(BaseProject project)
-        throws DocumentException, IOException, ClassNotFoundException, ServiceException
+    public Document getIssueDocument(ProjectBlock projectBlock)
+        throws DocumentException, IOException, ClassNotFoundException, HibernateException, ServiceException
     {
         CacheComponent cc = (CacheComponent) sm.lookup(CacheComponent.ROLE);
-        String xml = (String) cc.load("project" + project.getProjectCode());
+        ProjectBlockPeer pbp =  (ProjectBlockPeer) sm.lookup(ProjectBlockPeer.ROLE);
+        String xml = (String) cc.load("project" + projectBlock.getId());
 
         if (xml == null)
         {
-            URL url = new URL(project.getIssueXml());
+            Map m = pbp.getProperties(projectBlock);
+            URL url = new URL((String) m.get("all.url"));
+            
 
             URLConnection connection = url.openConnection();
             String password = "waldingb:good1";
@@ -98,7 +105,7 @@ public class DefaultJiraBlockProvider implements JiraBlockProvider, Serviceable,
             connection.setRequestProperty("Proxy-Authorization", "Basic " + encodedPassword);
 
             xml = StreamUtility.readInputStreamIntoString(connection.getInputStream());
-            cc.save("project" + project.getProjectCode(), xml);
+            cc.save("project" + projectBlock.getId(), xml);
         }
 
         SAXReader reader = new SAXReader();
@@ -106,7 +113,6 @@ public class DefaultJiraBlockProvider implements JiraBlockProvider, Serviceable,
         {
             public InputSource resolveEntity(String arg0, String arg1) throws SAXException, IOException
             {
-                // FIXME Auto-generated method stub
                 LOGGER.info("resolving entity " + arg0 + " / " + arg1);
                 return null;
             }

@@ -4,7 +4,6 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import org.codehaus.labyrinth.listener.AppContextListener;
-import org.codehaus.labyrinth.servlets.ManageProjectsServlet;
 import org.codehaus.labyrinth.servlets.SearchServlet;
 import org.mortbay.http.HttpServer;
 import org.mortbay.http.SocketListener;
@@ -62,7 +61,7 @@ public class JettyLauncher
         wac.addHandler(wah);
 
         wah.addServlet("/servlets/Search", SearchServlet.class.getName());
-        wah.addServlet("/servlets/ManageProjects", ManageProjectsServlet.class.getName());
+        //wah.addServlet("/servlets/ManageProjects", ManageProjectsServlet.class.getName());
 
         // Serve static content from the context
         ResourceHandler rh = new ResourceHandler();

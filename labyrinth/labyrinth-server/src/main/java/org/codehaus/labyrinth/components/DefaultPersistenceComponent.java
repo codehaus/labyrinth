@@ -20,7 +20,11 @@ import org.apache.avalon.framework.service.ServiceException;
 import org.apache.avalon.framework.service.ServiceManager;
 import org.apache.avalon.framework.service.Serviceable;
 import org.codehaus.labyrinth.DatabaseException;
+import org.codehaus.labyrinth.om.Block;
 import org.codehaus.labyrinth.om.Project;
+import org.codehaus.labyrinth.om.ProjectBlock;
+import org.codehaus.labyrinth.om.ProjectBlockProperty;
+import org.codehaus.labyrinth.om.peers.BlockPeer;
 
 /**
  * @author  Ben Walding
@@ -69,11 +73,14 @@ public class DefaultPersistenceComponent implements PersistenceComponent, Servic
         hcfg = new net.sf.hibernate.cfg.Configuration();
         hcfg.addProperties(getHibernateDBProperties());
         hcfg.addClass(Project.class);
+        hcfg.addClass(Block.class);
+        hcfg.addClass(ProjectBlock.class);
+        hcfg.addClass(ProjectBlockProperty.class);
 
         sessionFactory = hcfg.buildSessionFactory();
 
         session = sessionFactory.openSession();
-        generateSchema();
+        generateSchema(false, false);
 
     }
 
@@ -109,12 +116,12 @@ public class DefaultPersistenceComponent implements PersistenceComponent, Servic
         return session;
     }
 
-    public void generateSchema() throws HibernateException
+    public void generateSchema(boolean drop,boolean create) throws HibernateException
     {
         LOGGER.info("Loading schema");
         SchemaExport se = new SchemaExport(hcfg);
         se.setOutputFile("labyrinth.ddl");
-        se.create(false, false);
+        se.create(drop, create);
         session.flush();
 
     }
@@ -222,5 +229,58 @@ public class DefaultPersistenceComponent implements PersistenceComponent, Servic
         }
     }
 
-    
+    public void checkBlocks() throws DatabaseException, ServiceException
+    {
+        BlockPeer bp = (BlockPeer) serviceManager.lookup(BlockPeer.ROLE);
+        Block block = bp.getByRole(JiraBlockProvider.ROLE);
+        if (block == null)
+        {
+            block = new Block();
+            block.setRole(JiraBlockProvider.ROLE);
+            bp.save(block);
+        }
+    }
+
+    public void loadTest() throws DatabaseException
+    {
+        Project pDF = new Project();
+        pDF.setProjectCode("dataforge");
+        pDF.setUrl("http://dataforge.codehaus.org/");
+        save(pDF);
+
+        Project pMaven = new Project();
+        pMaven.setProjectCode("maven");
+        pMaven.setUrl("http://maven.apache.org/");
+        save(pMaven);
+
+        Block bJira = new Block();
+        bJira.setRole(JiraBlockProvider.ROLE);
+        save(bJira);
+
+        ProjectBlock pbDFJIRA = new ProjectBlock();
+        pbDFJIRA.setBlockId(bJira.getId());
+        pbDFJIRA.setProjectId(pDF.getId());
+        save(pbDFJIRA);
+
+        ProjectBlock pbMAVENJIRA = new ProjectBlock();
+        pbMAVENJIRA.setBlockId(bJira.getId());
+        pbMAVENJIRA.setProjectId(pMaven.getId());
+        save(pbMAVENJIRA);
+
+        ProjectBlockProperty pbpDFJIRA = new ProjectBlockProperty();
+        pbpDFJIRA.setProjectBlockId(pbMAVENJIRA.getId());
+        pbpDFJIRA.setName("all.url");
+        pbpDFJIRA.setValue(
+            "http://jira.codehaus.org/secure/IssueNavigator.jspa?pid=10190&resolutionIds=-1&sorter/field=lastupdated&sorter/order=DESC&tempMax=500&view=rss&reset=true");
+        save(pbpDFJIRA);
+        
+        ProjectBlockProperty pbpMAVENJIRA = new ProjectBlockProperty();
+        pbpMAVENJIRA.setProjectBlockId(pbDFJIRA.getId());
+        pbpMAVENJIRA.setName("all.url");
+        pbpMAVENJIRA.setValue(
+            "http://jira.codehaus.org/secure/IssueNavigator.jspa?pid=10030&resolutionIds=-1&sorter/field=lastupdated&sorter/order=DESC&tempMax=500&view=rss&reset=true");
+        save(pbpMAVENJIRA);
+
+    }
+
 }

@@ -13,12 +13,6 @@ import org.codehaus.labyrinth.om.Project;
  */
 public class ViewProjectServlet extends LabyrinthServlet
 {
-    /** log4j logger */
-    private static final org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger.getLogger(ViewProjectServlet.class);
-
-    /* (non-Javadoc)
-     * @see com.walding.common.servlet.EnhancedVelocityServlet#handleRequestInternal(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, org.apache.velocity.context.Context)
-     */
     protected Template handleRequestInternal(HttpServletRequest arg0, HttpServletResponse arg1, Context vcontext)
         throws Exception
     {

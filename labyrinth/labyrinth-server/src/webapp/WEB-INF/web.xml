@@ -35,6 +35,11 @@
             <servlet-class>org.codehaus.labyrinth.servlets.ManageProjectServlet</servlet-class>
     </servlet>
 
+    <servlet>
+            <servlet-name>RebuildDatabaseServlet</servlet-name>
+            <servlet-class>org.codehaus.labyrinth.servlets.RebuildDatabaseServlet</servlet-class>
+    </servlet>
+
  	<servlet>
             <servlet-name>ViewProjectServlet</servlet-name>
             <servlet-class>org.codehaus.labyrinth.servlets.ViewProjectServlet</servlet-class>
@@ -90,6 +95,11 @@
     <servlet-mapping>
       <servlet-name>ManageProjectServlet</servlet-name>
       <url-pattern>/servlets/ManageProjectServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+      <servlet-name>RebuildDatabaseServlet</servlet-name>
+      <url-pattern>/servlets/RebuildDatabaseServlet</url-pattern>
     </servlet-mapping>
 
 	<servlet-mapping>

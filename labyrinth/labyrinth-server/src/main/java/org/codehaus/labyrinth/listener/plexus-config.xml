@@ -52,17 +52,28 @@
       <implementation>org.codehaus.labyrinth.components.DefaultCacheComponent</implementation>
       <configuration/>
   	</component>
+  	
+	<!-- OM Components -->
   	<component>
   	  <role>org.codehaus.labyrinth.components.PersistenceComponent</role>
       <implementation>org.codehaus.labyrinth.components.DefaultPersistenceComponent</implementation>
       <configuration/>
   	</component>
-  	<component>
+	<component>
   	  <role>org.codehaus.labyrinth.om.peers.ProjectPeer</role>
       <implementation>org.codehaus.labyrinth.om.peers.DefaultProjectPeer</implementation>
       <configuration/>
   	</component>
+	<component>
+  	  <role>org.codehaus.labyrinth.om.peers.BlockPeer</role>
+      <implementation>org.codehaus.labyrinth.om.peers.DefaultBlockPeer</implementation>
+      <configuration/>
+  	</component>
+	<component>
+  	  <role>org.codehaus.labyrinth.om.peers.ProjectBlockPeer</role>
+      <implementation>org.codehaus.labyrinth.om.peers.DefaultProjectBlockPeer</implementation>
+      <configuration/>
+  	</component>		
   </components>
-
     
 </configuration>
