@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.codehaus.labyrinth.om.base.BaseProject;
+
 /**
  * @author Ben Walding
  *
@@ -42,7 +44,7 @@ public class OverlordStore
 
   }
   
-  public void addProject(Project pf) {
+  public void addProject(BaseProject pf) {
       projects.add(pf);
   }
   
@@ -65,12 +67,12 @@ public class OverlordStore
     return projects;
   }
 
-  public Project getProject(String artifactId)
+  public BaseProject getProject(String artifactId)
   {
     Iterator iter = projects.iterator();
     while (iter.hasNext())
     {
-      Project facade = (Project) iter.next();
+      BaseProject facade = (BaseProject) iter.next();
       if (facade.getArtifactId().equals(artifactId))
         return facade;
     }

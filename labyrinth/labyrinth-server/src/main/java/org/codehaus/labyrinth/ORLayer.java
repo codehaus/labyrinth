@@ -11,7 +11,7 @@ import net.sf.hibernate.SessionFactory;
 import net.sf.hibernate.Transaction;
 import net.sf.hibernate.tool.hbm2ddl.SchemaExport;
 
-import org.codehaus.labyrinth.om.Resource;
+import org.codehaus.labyrinth.om.Project;
 
 /**
  * @author <a href="bwalding@jakarta.org">Ben Walding</a>
@@ -43,7 +43,7 @@ public class ORLayer
         this.dbProperties = theDbProperties;
         hcfg = new net.sf.hibernate.cfg.Configuration();
         hcfg.addProperties(getHibernateDBProperties());
-        hcfg.addClass(Resource.class);
+        hcfg.addClass(Project.class);
 
         sessionFactory = hcfg.buildSessionFactory();
 

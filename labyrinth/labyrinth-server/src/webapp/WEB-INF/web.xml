@@ -3,7 +3,7 @@
         "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
-    <display-name>Overlord</display-name>
+    <display-name>Labyrinth</display-name>
     <description>
 		A Java Project Aggregator                
     </description>
@@ -23,6 +23,11 @@
     <servlet>
             <servlet-name>ContainerStatusServlet</servlet-name>
             <servlet-class>org.codehaus.labyrinth.servlets.ContainerStatusServlet</servlet-class>
+    </servlet>
+    
+     <servlet>
+            <servlet-name>ManageProjectServlet</servlet-name>
+            <servlet-class>org.codehaus.labyrinth.servlets.ManageProjectServlet</servlet-class>
     </servlet>
 
     <servlet>
@@ -64,7 +69,12 @@
 
     <servlet-mapping>
       <servlet-name>ContainerStatusServlet</servlet-name>
-      <url-pattern>/servlet/ContainerStatusServlet</url-pattern>
+      <url-pattern>/servlets/ContainerStatusServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+      <servlet-name>ManageProjectServlet</servlet-name>
+      <url-pattern>/servlets/ManageProjectServlet</url-pattern>
     </servlet-mapping>
     
     <servlet-mapping>

@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import org.codehaus.labyrinth.om.base.BaseProject;
+
 /**
  * @author Ben Walding
  *
@@ -25,9 +27,9 @@ public class OverlordLibrary
                 if (o2 == null)
                     return -1;
 
-                Project pf1 = (Project) o1;
-                Project pf2 = (Project) o2;
-                return pf1.getId().compareTo(pf2.getId());
+                BaseProject pf1 = (BaseProject) o1;
+                BaseProject pf2 = (BaseProject) o2;
+                return pf1.getProjectId().compareTo(pf2.getProjectId());
             }
         };
 

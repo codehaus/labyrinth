@@ -9,9 +9,10 @@ package org.codehaus.labyrinth;
 import java.io.IOException;
 import java.util.Iterator;
 
-import org.prevayler.implementation.SnapshotPrevayler;
-
 import org.codehaus.labyrinth.commands.AddProject;
+import org.codehaus.labyrinth.om.Project;
+import org.codehaus.labyrinth.om.base.BaseProject;
+import org.prevayler.implementation.SnapshotPrevayler;
 
 /**
  * @author <a href="bwalding@jakarta.org">Ben Walding</a>
@@ -33,7 +34,7 @@ public class Overlord
 
         Projects projects = (Projects) prevayler.system();
         Project p = new Project();
-        p.setId("" + projects.getProjects().size());
+        p.setProjectId("" + projects.getProjects().size());
 
         AddProject cmd = new AddProject(p);
         prevayler.executeCommand(cmd);
@@ -41,8 +42,8 @@ public class Overlord
         Iterator iter = projects.getProjects().values().iterator();
         while (iter.hasNext())
         {
-            Project p2 = (Project) iter.next();
-            System.out.println("Project: " + p2.getId());
+            BaseProject p2 = (BaseProject) iter.next();
+            System.out.println("Project: " + p2.getProjectId());
         }
 
         stopPrevayler();

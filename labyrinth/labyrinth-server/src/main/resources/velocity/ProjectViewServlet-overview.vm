@@ -1,0 +1,37 @@
+<br/>
+<div class="h3">
+<h3>Overview</h3>      	
+<br/>
+#if ($project.MavenProject.Logo.startsWith("http:"))
+	#set ($imgurl = "$project.MavenProject.Logo")
+#else
+	#if ($project.MavenProject.Url.endsWith("/") && $project.MavenProject.Logo.startsWith("/"))
+      	#set ($imgurl = "$project.MavenProject.Url$project.MavenProject.Logo.substring(1)")
+    #else
+      	#set ($imgurl = "$project.MavenProject.Url$project.MavenProject.Logo")
+    #end
+#end
+
+#if ($imgurl.toLowerCase().endsWith(".gif") || $imgurl.toLowerCase().endsWith(".jpg") || $imgurl.toLowerCase().endsWith(".png") || $imgurl.toLowerCase().endsWith(".bmp"))
+ 	 ##Yay, valid image
+#else
+	 #set ($imgurl = "")
+#end
+
+#if ($imgurl && $imgurl != "")
+	<a style="margin-top: 10px; margin-left: 10px;" href="$project.MavenProject.Url"><img style="padding: 3px; border: 1px solid black" src="$imgurl"></a>
+#else
+	<a style="margin-top: 10px; margin-left: 10px;" href="$project.MavenProject.Url">$project.MavenProject.Url</a>
+#end
+
+${rowtoggler.reset()}
+<table style="margin-top: 10px; margin-left: 10px; border: 1px solid black">
+	<tr class="$rowtoggler.Next"><th>Source</th><td><a href="$project.Source">$project.Source</a></td></tr>
+	<tr class="$rowtoggler.Next"><th></th><td><a href="viewresource?artifactId=${project.artifactId}">Cached copy of resource</a></td></tr>
+	<tr class="$rowtoggler.Next"><th>URL</th><td><a href="$project.MavenProject.Url">$project.MavenProject.Url</a></td></tr>
+	<tr class="$rowtoggler.Next"><th>ArtifactID</th><td>$project.ArtifactId</td></tr>
+	<tr class="$rowtoggler.Next"><th>Summary</th><td>$project.MavenProject.ShortDescription</td></tr>
+	<tr class="$rowtoggler.Next"><th>Description</th><td>$project.Description</td></tr>
+	<tr class="$rowtoggler.Next"><th>Organization</th><td>$project.MavenProject.Organization</td></tr>
+</table>
+</div>

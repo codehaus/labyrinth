@@ -1,37 +1,80 @@
-package org.codehaus.labyrinth;
+package org.codehaus.labyrinth.om.base;
 
 import java.io.Serializable;
 /**
  * @author Ben Walding
  *
  */
-public class Project implements Serializable
+public abstract class BaseProject implements Serializable
 {
     private static final long serialVersionUID = 1234;
-    
+    private Integer id;
     private String source;
+    private String projectId;
     private String artifactId;
     private String groupId;
-    private String id;
+    private String url;
     private String description;
-    public Project()
+    private String issueXml =
+        "http://jira.codehaus.org/secure/IssueNavigator.jspa?pid=10030&resolutionIds=-1&sorter/field=lastupdated&sorter/order=DESC&tempMax=500&view=rss&reset=true";
+    /**
+     * @return
+     */
+    public String getUrl()
     {
+        return url;
+    }
+
+    /**
+     * @param url
+     */
+    public void setUrl(String url)
+    {
+        this.url = url;
     }
 
     /**
      * @return
      */
-    public String getId()
+    public Integer getId()
     {
         return id;
     }
 
     /**
-     * @param string
+     * @param id
      */
-    public void setId(String string)
+    public void setId(Integer id)
     {
-        id = string;
+        this.id = id;
+    }
+
+    /**
+     * @return
+     */
+    public String getProjectId()
+    {
+        return projectId;
+    }
+
+    /**
+     * @param projectId
+     */
+    public void setProjectId(String projectId)
+    {
+        this.projectId = projectId;
+    }
+
+    /**
+     * @return
+     */
+    public String getIssueXml()
+    {
+        return issueXml;
+    }
+
+    public BaseProject()
+    {
     }
 
     /**

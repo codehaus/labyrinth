@@ -43,8 +43,18 @@
   
   <components>
   	<component>
-  	  <role>org.apache.plexus.summit.SummitEnvironment</role>
-      <implementation>org.apache.plexus.summit.DefaultSummitEnvironment</implementation>
+  	  <role>org.codehaus.labyrinth.components.JiraBlockProvider</role>
+      <implementation>org.codehaus.labyrinth.components.DefaultJiraBlockProvider</implementation>
+      <configuration/>
+  	</component>
+  	<component>
+  	  <role>org.codehaus.labyrinth.components.CacheComponent</role>
+      <implementation>org.codehaus.labyrinth.components.DefaultCacheComponent</implementation>
+      <configuration/>
+  	</component>
+  	<component>
+  	  <role>org.codehaus.labyrinth.components.PersistenceComponent</role>
+      <implementation>org.codehaus.labyrinth.components.DefaultPersistenceComponent</implementation>
       <configuration/>
   	</component>
   </components>

@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.codehaus.labyrinth.om.base.BaseProject;
 import org.prevayler.implementation.AbstractPrevalentSystem;
 
 /**
@@ -49,18 +50,18 @@ public class Projects extends AbstractPrevalentSystem implements Serializable
         projects = map;
     }
 
-    public void addProject(Project project)
+    public void addProject(BaseProject project)
     {
         projects.put(project, project);
     }
     
     
-    public Project getProject(String id) {
+    public BaseProject getProject(String id) {
         Iterator iter = projects.values().iterator();
         while (iter.hasNext())
         {
-            Project project = (Project) iter.next();
-            if (id.equalsIgnoreCase(project.getId())) {
+            BaseProject project = (BaseProject) iter.next();
+            if (id.equalsIgnoreCase(project.getProjectId())) {
                 return project;
             }
         }
