@@ -1,0 +1,24 @@
+<style type="text/css">
+	table.issues {
+		border-collapse: collapse;
+	}
+	
+	table.issues tr {
+		border: 1px solid black;
+		padding-bottom: 3px;
+	}
+</style>
+
+#set ($bp = $serviceManager.lookup("org.codehaus.labyrinth.components.JiraBlockProvider"))
+
+#set ($issues = $bp.getIssues($project))
+
+There are $issues.size() issues
+<table class="issues">
+#foreach ($issue in $issues)
+	<tr>
+		<td><a href="$issue.Url">$issue.getId()<a></td>		
+		<td>$issue.Title</td>		
+	</tr>
+#end
+</table>

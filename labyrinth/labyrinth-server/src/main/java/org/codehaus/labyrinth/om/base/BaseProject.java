@@ -10,7 +10,7 @@ public abstract class BaseProject implements Serializable
     private static final long serialVersionUID = 1234;
     private Integer id;
     private String source;
-    private String projectId;
+    private String projectCode;
     private String artifactId;
     private String groupId;
     private String url;
@@ -52,17 +52,17 @@ public abstract class BaseProject implements Serializable
     /**
      * @return
      */
-    public String getProjectId()
+    public String getProjectCode()
     {
-        return projectId;
+        return projectCode;
     }
 
     /**
      * @param projectId
      */
-    public void setProjectId(String projectId)
+    public void setProjectCode(String projectId)
     {
-        this.projectId = projectId;
+        this.projectCode = projectId;
     }
 
     /**

@@ -61,7 +61,7 @@ public class Projects extends AbstractPrevalentSystem implements Serializable
         while (iter.hasNext())
         {
             BaseProject project = (BaseProject) iter.next();
-            if (id.equalsIgnoreCase(project.getProjectId())) {
+            if (id.equalsIgnoreCase(project.getProjectCode())) {
                 return project;
             }
         }

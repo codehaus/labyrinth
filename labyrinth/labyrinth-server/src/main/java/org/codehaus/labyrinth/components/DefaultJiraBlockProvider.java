@@ -86,7 +86,7 @@ public class DefaultJiraBlockProvider implements JiraBlockProvider, Serviceable,
         throws DocumentException, IOException, ClassNotFoundException, ServiceException
     {
         CacheComponent cc = (CacheComponent) sm.lookup(CacheComponent.ROLE);
-        String xml = (String) cc.load("project" + project.getProjectId());
+        String xml = (String) cc.load("project" + project.getProjectCode());
 
         if (xml == null)
         {
@@ -98,7 +98,7 @@ public class DefaultJiraBlockProvider implements JiraBlockProvider, Serviceable,
             connection.setRequestProperty("Proxy-Authorization", "Basic " + encodedPassword);
 
             xml = StreamUtility.readInputStreamIntoString(connection.getInputStream());
-            cc.save("project" + project.getProjectId(), xml);
+            cc.save("project" + project.getProjectCode(), xml);
         }
 
         SAXReader reader = new SAXReader();

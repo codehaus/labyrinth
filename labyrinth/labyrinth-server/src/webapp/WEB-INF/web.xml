@@ -30,6 +30,11 @@
             <servlet-class>org.codehaus.labyrinth.servlets.ManageProjectServlet</servlet-class>
     </servlet>
 
+ 	<servlet>
+            <servlet-name>ViewProjectServlet</servlet-name>
+            <servlet-class>org.codehaus.labyrinth.servlets.ViewProjectServlet</servlet-class>
+    </servlet>
+
     <servlet>
             <servlet-name>IndexServlet</servlet-name>
             <servlet-class>com.walding.overlord.server.servlets.IndexServlet</servlet-class>
@@ -75,6 +80,11 @@
     <servlet-mapping>
       <servlet-name>ManageProjectServlet</servlet-name>
       <url-pattern>/servlets/ManageProjectServlet</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+      <servlet-name>ViewProjectServlet</servlet-name>
+      <url-pattern>/servlets/ViewProjectServlet</url-pattern>
     </servlet-mapping>
     
     <servlet-mapping>
