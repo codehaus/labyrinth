@@ -1,0 +1,10 @@
+#set ($title = "Welcome to Overlord")
+#includeHeader()
+   <p>Overlord provides a consolidated view of Java projects from all over the world.</p>
+   
+   <p>It works by retrieving the project descriptors from various projects (typically from their
+   web enabled source code repositories) and linking them together.</p>
+
+	<b><= Choose an action from the left to start using Overlord</b>
+
+#includeFooter()

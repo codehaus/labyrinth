@@ -1,0 +1,19 @@
+<html>
+  <style type="text/css">
+     @import url("../style/tigris.css");
+     @import url("../style/maven.css");
+  </style>
+        
+        
+<head>
+  <title>Overlord - Project Aggregator</title>
+</head>
+<body>
+<div id="bodycol">
+    
+	<div id="source">
+<pre>$project-data</pre>
+    </div>
+</div>
+</body>
+</html>
