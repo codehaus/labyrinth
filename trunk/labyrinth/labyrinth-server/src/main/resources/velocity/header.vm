@@ -15,9 +15,9 @@
   <td align="left">
    <table border="0" cellpadding="0" cellspacing="2"><tr>
 
-    <td valign="top"><a href="http://projects.walding.com/overlord/"
-    title="Overlord, your solution for: Tracking Projects across the Globe"><img src="../images/overlord.png" 
-    alt="Overlord" id="tigrislogo" border="0" /--></a></td> 
+   ## <td valign="top"><a href="http://projects.walding.com/overlord/"
+   ## title="Overlord, your solution for: Tracking Projects across the Globe"><img src="../images/overlord.png" 
+   ## alt="Overlord" id="tigrislogo" border="0" /--></a></td> 
     <td valign="middle" nowrap="nowrap"><div style="padding-left: 60px; ">Java Project Aggregation</div></td>
    </tr></table>
   </td>
@@ -32,9 +32,11 @@
 <tr><td id="leftcol" width="7%" rowspan="1">
   <div id="navcolumn" style="margin-right:5px">
 	<a href="../servlet/index">Home</a>
-	<br/><a href="../servlet/search">Search</a>
-	<br/><a href="../servlet/advancedsearch">Advanced&nbsp;Search</a>
-	<br/><a href="../servlet/manageprojects">Manage</a>
+  </div>
+  <div><br/></div>
+  <div id="navcolumn" style="margin-right:5px">
+  	<br/><a href="../servlets/ManageProjectServlet">Add Project</a>
+	<br/><a href="../servlets/FindProjectServlet">Find Project</a>
   </div>
 </td>
 <td>
