@@ -1,0 +1,13 @@
+#set ($bp = $serviceManager.lookup("org.codehaus.labyrinth.om.peers.ProjectPeer"))
+
+#set ($projectBlocks = $bp.getProjectBlocks($project))
+
+There are $projectBlocks.size() blocks
+<table class="issues">
+#foreach ($projectBlock in $projectBlocks)
+	<tr>
+		<td><a href="$projectBlock.Id">$projectBlock.role<a></td>		
+		<td>$projectBlock.role</td>		
+	</tr>
+#end
+</table>

@@ -4,12 +4,11 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
 
 <hibernate-mapping>	
-  <class name="org.codehaus.labyrinth.om.Project" table="LProject">
-    <id name="id" type="int" column="rfLProject">
+  <class name="org.codehaus.labyrinth.om.ProjectBlock" table="LProjectBlock">
+    <id name="id" type="int" column="rfLProjectBlock">
       <generator class="native"/>
     </id>
     <property not-null="true" name="projectId" column="rfLProject"/>
-    <property not-null="true" name="name" column="txName"/>
-    <property not-null="true" name="value" column="txValue"/>
+    <property not-null="true" name="blockId" column="rfLBlock"/>
   </class>
 </hibernate-mapping>

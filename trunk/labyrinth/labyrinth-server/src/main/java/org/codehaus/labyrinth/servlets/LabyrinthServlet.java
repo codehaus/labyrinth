@@ -50,6 +50,12 @@ public abstract class LabyrinthServlet extends EnhancedVelocityServlet
     {
         return (ServiceManager) context.getAttribute("plexus.service.manager");
     }
+
+    public ServiceManager getServiceManager()
+    {
+        return getServiceManager(getServletContext());
+    }
+
     public static PlexusContainer getPlexusContainer(ServletContext context)
     {
         return (PlexusContainer) context.getAttribute("plexus.container");

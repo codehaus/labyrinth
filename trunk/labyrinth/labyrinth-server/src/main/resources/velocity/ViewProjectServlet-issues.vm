@@ -10,14 +10,15 @@
 </style>
 
 #set ($bp = $serviceManager.lookup("org.codehaus.labyrinth.components.JiraBlockProvider"))
+#set ($pbp = $serviceManager.lookup("org.codehaus.labyrinth.om.peers.ProjectPeer"))
 
-#set ($issues = $bp.getIssues($project))
+#set ($projectBlocks = $bp.getIssues($project))
 
-There are $issues.size() issues
-<table class="issues">
-#foreach ($issue in $issues)
+There are $projectBlocks.size() issues
+<table class="projectBlocks">
+#foreach ($projectBlock in $projectBlocks)
 	<tr>
-		<td><a href="$issue.Url">$issue.getId()<a></td>		
+		<td><a href="projectBlock.URL">$projectBlock.id<a></td>		
 		<td>$issue.Title</td>		
 	</tr>
 #end

@@ -1,0 +1,8 @@
+#includeHeader()
+
+About to smash and rebuild your db
+
+<a href="RebuildDatabaseServlet?key=${key}">Click here to rebuild</a>
+
+
+#includeFooter();

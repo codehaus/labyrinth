@@ -1,18 +1,17 @@
 /*
- * Created on Aug 3, 2003
+ * Created on Aug 5, 2003
  *
  * To change this generated comment go to 
  * Window>Preferences>Java>Code Generation>Code Template
  */
 package org.codehaus.labyrinth.om;
 
-import org.codehaus.labyrinth.om.base.BaseProject;
+import org.codehaus.labyrinth.om.base.BaseProjectBlockProperty;
 
 /**
  * @author <a href="bwalding@apache.org">Ben Walding</a>
  * @version $Id$
  */
-public class Project extends BaseProject
+public class ProjectBlockProperty extends BaseProjectBlockProperty
 {
-   
 }

@@ -4,3 +4,14 @@ $project
 <tr><td>Id</td><td>${project.ProjectCode}</td></tr>
 <tr><td>URL</td><td><a href="$project.Url">$project.Url</a></td></tr>
 </table>
+
+
+#set ($bp = $serviceManager.lookup("org.codehaus.labyrinth.om.peers.BlockPeer"))
+
+#set ($blocks = $bp.getBlocks($project))
+
+<table>
+#foreach ($block in $blocks)
+  <tr><td>${block.id}</td><td>${block.role}</td></tr>
+#end
+</table>

@@ -9,6 +9,7 @@
             <tr>
               #tab ("Overview" "overview" $tab "ViewProjectServlet?id=$project.id&amp;tab=overview")
               #tab ("Issues" "issues" $tab "ViewProjectServlet?id=$project.id&amp;tab=issues")
+              #tab ("Blocks" "blocks" $tab "ViewProjectServlet?id=$project.id&amp;tab=blocks")
               ##tab ("Licensing" "license" $tab "projectview?artifactId=$artifactId&amp;tab=license")
               ##tab ("Dependencies" "dependencies" $tab "projectview?artifactId=$artifactId&amp;tab=dependencies")
               ##tab ("Team" "team" $tab "projectview?artifactId=$artifactId&amp;tab=team")
@@ -24,6 +25,10 @@
       	
       	#if ($tab == "issues" || $tab == "all")
       		#parse ("velocity/ViewProjectServlet-issues.vm")
+      	#end
+      	
+      	#if ($tab == "blocks" || $tab == "all")
+      		#parse ("velocity/ViewProjectServlet-blocks.vm")
       	#end
       	
       	#if ($tab == "license" || $tab == "all")
