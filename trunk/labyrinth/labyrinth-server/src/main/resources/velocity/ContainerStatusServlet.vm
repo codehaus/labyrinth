@@ -1,0 +1,31 @@
+$project
+
+#set ($configuration = $container.DefaultConfiguration)
+
+#set ($attributeNames = $configuration.AttributeNames)
+
+#set ($bp = $componentRepository.lookup("org.codehaus.labyrinth.components.JiraBlockProvider"))
+#set ($pc = $componentRepository.lookup("org.codehaus.labyrinth.components.PersistenceComponent"))
+
+$pc
+##set ($issues = $bp.getIssues($project))
+There are $issues.size() issues
+<table>
+#foreach ($issue in $issues)
+	<tr>
+		<td><a href="$issue.Url">$issue.getId()<a></td>		
+		<td>$issue.Title</td>		
+	</tr>
+#end
+</table>
+
+
+
+<b>There are currently $bp.getIssueCount($project) issues for this project</b>
+<h1>Attributes</h1>
+##<table>
+#foreach ($attributeName in $attributeNames)
+YO
+  <tr><td>$attributeName</td><td>$configuration.getAttribute($attributeName)</td></tr>
+#end
+##</table>

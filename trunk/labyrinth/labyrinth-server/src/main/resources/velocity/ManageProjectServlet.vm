@@ -1,0 +1,16 @@
+$componentRepository
+
+
+SM: $serviceManager
+
+asd
+
+
+<form method="POST" action="ManageProjectServlet">
+
+	<input type="hidden" name="id" value="$!project.Id"/>
+	
+	
+	<input name="url" value="$!project.Url"/>
+	<input type="submit" value="Update"/>
+</form>

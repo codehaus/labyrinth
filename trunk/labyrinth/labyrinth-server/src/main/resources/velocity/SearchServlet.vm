@@ -1,0 +1,48 @@
+#set ($title = "Search for Projects")
+#includeHeader()
+
+    <div id="bodycol">
+      <div class="app">
+                  
+		#if (!$query)
+			#set ($projects = $engine.Store.Projects)
+		#end
+		
+		
+       
+       
+		<form method="GET" action="Search">
+		<div class="axial">
+         
+		<div class="h3">
+		<h3> Search for a project</h3>
+			<table border="0" cellspacing="2" cellpadding="3" style="width:100%; padding: 0; margin: 0">
+         <tr class="a"><td>       
+			<input style="width: 100%" name="query" value="$!{query}"></input>
+			</td></tr>
+			</table>
+		</div>
+			
+			<div class="functnbar3">
+       
+			<input type="submit" value="Search"> 
+			</div>
+		</div>
+		</form>
+		<br/>
+		<table style="border: 1px solid black">
+			<tr class="a" ><th>ArtifactID</th><th>Description</th>
+		#foreach ($project in $projects)
+			<tr class="$rowtoggler.Next">
+				<td><a href="projectview?artifactId=$project.ArtifactId">$project.ArtifactId</a></td>
+				<td>$project.MavenProject.ShortDescription</td>
+			</tr>
+		#end
+		</table>
+	</div>
+  </div>
+<br/>
+<center><font size="-1"><i>search powered by</i></font> <a href="http://jakarta.apache.org/lucene"><img src="images/lucene_green_100.png" alt="Lucene" border="0" /></a></center>
+
+
+#includeFooter()

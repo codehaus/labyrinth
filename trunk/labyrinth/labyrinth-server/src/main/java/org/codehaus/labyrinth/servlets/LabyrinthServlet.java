@@ -6,9 +6,13 @@
  */
 package org.codehaus.labyrinth.servlets;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.avalon.framework.service.ServiceManager;
+import org.apache.plexus.DefaultPlexusContainer;
+import org.apache.plexus.PlexusContainer;
 import org.apache.velocity.Template;
 import org.apache.velocity.context.Context;
 
@@ -20,15 +24,41 @@ import com.walding.common.servlet.EnhancedVelocityServlet;
  */
 public abstract class LabyrinthServlet extends EnhancedVelocityServlet
 {
+    /** log4j logger */
+    private static final org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger.getLogger(LabyrinthServlet.class);
 
-    /* (non-Javadoc)
-     * @see com.walding.common.servlet.EnhancedVelocityServlet#handleRequestInternal(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, org.apache.velocity.context.Context)
-     */
-    public Template handleRequest(HttpServletRequest arg0, HttpServletResponse arg1, Context arg2) throws Exception
+    private static ThreadLocal contextTL = new ThreadLocal()
     {
-        return super.handleRequest(arg0, arg1, arg2);
+        protected synchronized Object initialValue()
+        {
+            return null;
+        }
+    };
+
+    public Template handleRequest(HttpServletRequest arg0, HttpServletResponse arg1, Context vcontext) throws Exception
+    {
+        ServletContext context = arg0.getSession().getServletContext();
+        contextTL.set(context);
+        Template t = super.handleRequest(arg0, arg1, vcontext);
+        vcontext.put("container", LabyrinthServlet.getPlexusContainer(context));
+        vcontext.put("componentRepository", LabyrinthServlet.getPlexusContainer(context).getComponentRepository());
+        vcontext.put("serviceManager", LabyrinthServlet.getServiceManager(context));
+        return t;
     }
 
-   
-    
+    public static ServiceManager getServiceManager(ServletContext context)
+    {
+        return (ServiceManager) context.getAttribute("plexus.service.manager");
+    }
+    public static PlexusContainer getPlexusContainer(ServletContext context)
+    {
+        return (PlexusContainer) context.getAttribute("plexus.container");
+    }
+
+    public static void setPlexusContainer(ServletContext context, DefaultPlexusContainer container)
+    {
+        LOGGER.info("c.getDC" + container.getDefaultConfiguration().getAttributeNames().length);
+        context.setAttribute("plexus.container", container);
+    }
+
 }

@@ -1,75 +1,67 @@
 package org.codehaus.labyrinth.listener;
 
-import java.io.IOException;
-import java.util.Properties;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import org.apache.velocity.app.Velocity;
-import org.apache.velocity.runtime.RuntimeSingleton;
-import org.codehaus.labyrinth.Overlord;
+import org.apache.log4j.PropertyConfigurator;
+import org.apache.plexus.DefaultPlexusContainer;
+import org.apache.plexus.lifecycle.avalon.AvalonServiceManager;
+import org.codehaus.labyrinth.servlets.LabyrinthServlet;
 
 /**
- * @author Ben Walding
- *
+ * @author <a href="bwalding@apache.org">Ben Walding</a>
+ * @version $Id$
  */
-public class AppContextListener implements ServletContextListener
-{
-   
-    /**
+public class AppContextListener implements ServletContextListener {
+    /** log4j logger */
+    private static final org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger.getLogger(AppContextListener.class);
+
+    private DefaultPlexusContainer container = null;
+    /* (non-Javadoc)
      * @see javax.servlet.ServletContextListener#contextInitialized(javax.servlet.ServletContextEvent)
      */
-    public void contextInitialized(ServletContextEvent sce)
-    {
-        System.out.println("******************************* HERE");
-        try
-        {
-            Properties p = new Properties();
-            p.load(getClass().getClassLoader().getResourceAsStream("WEB-INF/velocity.properties"));
-            //p.putAll(EnhancedVelocityServlet.getVelocityProperties());
-            Velocity.init(p);
-            //RuntimeSingleton.getRuntimeInstance().setProperty("velocity.resource.loader", "file, class");
-            //Velocity.init(EnhancedVelocityServlet.getVelocityProperties());
-            System.out.println(RuntimeSingleton.getProperty("velocity.resource.loader"));
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! HERE");
-            Overlord.startPrevayler();
-            
+    public void contextInitialized(ServletContextEvent sce) {
+        PropertyConfigurator.configure(getClass().getResource("/log4j.properties"));
+
+        ServletContext context = sce.getServletContext();
+
+        context.log("Initializing Plexus...");
+        InputStream is = AppContextListener.class.getResourceAsStream("plexus-config.xml");
+        if (is == null) {
+            context.log("Plexus configuration not found");
+            throw new RuntimeException("Plexus configuration not found");
         }
 
-        catch (Exception e)
-        {
-            e.printStackTrace();
-            //LOG.fatal("Couldn't read properties", e);
-        }
-        try
-        {
+        Reader config = new InputStreamReader(is);
 
-            //XXX something wrong here, it's a mulch of references
-            //      OverlordEngine engine = new OverlordEngine();
-            //      sce.getServletContext().setAttribute("OverlordEngine", engine);
-
+        container = new DefaultPlexusContainer();
+        LOGGER.info("Creating container");
+        try {
+            container.setConfigurationResource(config);
+            container.initialize();
+            container.start();
+        } catch (Exception e) {
+            throw new RuntimeException("Could not start Plexus!", e);
         }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-
+        context.setAttribute("plexus.service.manager", new AvalonServiceManager(container.getComponentRepository()));
+        LabyrinthServlet.setPlexusContainer(context, container);
+        LOGGER.info("Plexus Initialized.");
     }
-
-    /**
+    
+    /* (non-Javadoc)
      * @see javax.servlet.ServletContextListener#contextDestroyed(javax.servlet.ServletContextEvent)
      */
-    public void contextDestroyed(ServletContextEvent arg0)
-    {
-        try
-        {
-            Overlord.stopPrevayler();
+    public void contextDestroyed(ServletContextEvent arg0) {
+        if (container != null) {
+            LOGGER.info("Disposing of container");
+            container.dispose();
         }
-        catch (IOException e)
-        {
-            throw new RuntimeException(e);
-        }
+
     }
 
 }

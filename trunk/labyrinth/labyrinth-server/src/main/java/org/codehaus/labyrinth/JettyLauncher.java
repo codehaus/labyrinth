@@ -112,5 +112,5 @@ public class JettyLauncher
             super(arg0, arg1);
             // TODO Auto-generated constructor stub
         }
-    };
+    }
 }

@@ -1,7 +1,0 @@
-#macro (includeHeader)
-#parse ("velocity/header.vm")
-#end
-
-#macro (includeFooter)
-#parse ("velocity/footer.vm")
-#end

@@ -1,0 +1,15 @@
+<br/>
+<div class="h3">
+<h3>Project License</h3>      
+#set ($license = $engine.License.getLicense($project.ArtifactId))
+#if ($license) 
+	${rowtoggler.reset()}
+	<table style="margin-top: 10px; margin-left: 10px; border: 1px solid black">
+		##<tr class="$rowtoggler.Next"><th>Project URL</th><td><a href="$license.Url">$license.Url</a></td></tr>
+		<tr class="$rowtoggler.Next"><th>License URL</th><td><a href="$license.File">$license.File</a></td></tr>
+		<tr class="$rowtoggler.Next"><th>Comments</th><td>$license.Comments</td></tr>
+	</table>
+#else
+	The repository does not have any licensing information for this project.
+#end
+</div>

@@ -14,19 +14,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.velocity.Template;
 import org.apache.velocity.context.Context;
+import org.codehaus.labyrinth.om.Project;
 
 /**
  * @author <a href="bwalding@apache.org">Ben Walding</a>
  * @version $Id$
  */
-public class ContainerStatusServlet extends LabyrinthServlet
-{
+public class ContainerStatusServlet extends LabyrinthServlet {
     ServletContext context;
     /* (non-Javadoc)
      * @see javax.servlet.Servlet#init(javax.servlet.ServletConfig)
      */
-    public void init(ServletConfig arg0) throws ServletException
-    {
+    public void init(ServletConfig arg0) throws ServletException {
         context = arg0.getServletContext();
         super.init(arg0);
     }
@@ -34,10 +33,15 @@ public class ContainerStatusServlet extends LabyrinthServlet
     /* (non-Javadoc)
      * @see com.walding.common.servlet.EnhancedVelocityServlet#handleRequestInternal(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, org.apache.velocity.context.Context)
      */
-    protected Template handleRequestInternal(HttpServletRequest arg0, HttpServletResponse arg1, Context arg2)
-        throws Exception
-    {
-        arg2.put("container", context.getAttribute("plexus.container"));
+    protected Template handleRequestInternal(
+        HttpServletRequest request,
+        HttpServletResponse response,
+        Context vcontext)
+        throws Exception {
+        Project p = new Project();
+        p.setId(new Integer(1));
+        p.setProjectId("labyrinth");
+        vcontext.put("project", p);
         return getTemplate("velocity/ContainerStatusServlet.vm");
     }
 

@@ -1,5 +1,5 @@
 <!-- Standalone file suitable for TomCat 4.1 -->
-<Context path="/labyrinth" docBase="d:\data\workspace\overlord/target/labyrinth" debug="10">
+<Context path="/labyrinth" docBase="D:\data\workspace\labyrinth-server\target\labyrinth-server" debug="10" reloadable="true">
 
   <Logger className="org.apache.catalina.logger.FileLogger"
                      prefix="localhost_labyrinth_devl_log." suffix=".txt"
@@ -7,7 +7,7 @@
         	  
       	
          <Environment name="velocity.file.resource.loader.path"
-         	value="D:/data/workspace/labyrinth/src/main/resources"
+         	value="D:/data/workspace/labyrinth-server/src/main/resources"
          	type="java.lang.String" override="false"/>
          	
          <Environment name="velocity.file.resource.loader.class"

@@ -8,8 +8,8 @@ package org.codehaus.labyrinth.commands;
 
 import java.io.Serializable;
 
-import org.codehaus.labyrinth.Project;
 import org.codehaus.labyrinth.Projects;
+import org.codehaus.labyrinth.om.base.BaseProject;
 import org.prevayler.Command;
 import org.prevayler.PrevalentSystem;
 
@@ -19,8 +19,8 @@ import org.prevayler.PrevalentSystem;
  */
 public class AddProject implements Command
 {
-    private final Project project;
-    public AddProject(Project project)
+    private final BaseProject project;
+    public AddProject(BaseProject project)
     {
         this.project = project;
     }

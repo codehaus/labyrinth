@@ -6,13 +6,13 @@
  */
 package org.codehaus.labyrinth.om;
 
-import org.codehaus.labyrinth.om.base.BaseResource;
+import org.codehaus.labyrinth.om.base.BaseProject;
 
 /**
  * @author <a href="bwalding@apache.org">Ben Walding</a>
  * @version $Id$
  */
-public class Resource extends BaseResource
+public class Project extends BaseProject
 {
 
 }
