@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<document>
+
+  <properties>
+    <title>Overlord</title>
+    <author email="bwalding@apache.org">Ben Walding</author>
+  </properties>
+
+  <body>
+  	
+    
+    <section name="Features">
+    
+    	<ol>
+    	<li>
+    		Projects could register an XML definition of their project 
+    		(probably the POM or something very similar) as a URL
+    	</li>
+    	<li>
+			Maven site would maintain a searchable index of projects updated 
+			on a regular basis (using Lucene indexer?). eg Which projects are 
+			using commons-io-20021103.jar (eg to notify about security hole in it for example)
+    	</li>
+    	<li>
+			Projects could push rss feeds for their releases / news.  
+			These feeds would be aggregated on the Maven site. 
+			(POM change to store RSS location)
+    	</li>
+    	<li>
+			Projects would require classification (POM change to store 
+			project type). Similar to trove classification.
+    	</li>
+    	<li>
+			External plugins that were registered could be downloaded 
+			and built, removing the requirement that plugins be manually handled.  
+    	</li>
+    	<li>
+    		There will be a magic string in project.xml files which can be used to find 
+    		Maven projects using Google.
+    		eg &lt;!-- THISISMAVENPROJECTXMLFEEDDEBEEF (allows Maven Project Aggregator to find your project anywhere on the web!) --&gt;
+    	</li>
+    	</ol>
+    	
+    </section>
+    
+    <!--
+    
+
+There may be scalability issues with scaling up past a few thousand projects, but nothing insurmountable (google copes...) - and lets not get ahead of ourselves.
+
+
+
+
+Q: What does this add over a freshmeat / sourceforge environment
+A: SF provides hosting, Freshmeat is more about pushing the software than sharing information.
+Q: What kind of software would need to be created?
+A: Some kind of search site - couple of servlets
+A: A plugin to push the rss
+A: A plugin to lucene (if lucene is the way to go)
+
+This is not really a blog entry, just using blog medium.
+-->
+    
+    
+
+
+  </body>
+</document>
+
+

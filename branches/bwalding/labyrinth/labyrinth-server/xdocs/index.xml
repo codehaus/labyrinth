@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<document>
+
+  <properties>
+    <title>Overlord</title>
+    <author email="bwalding@apache.org">Ben Walding</author>
+  </properties>
+
+  <body>
+  	
+  	<section name="Overview">
+  		<div style='width: 100%; text-align: center'>
+	  	<cite>
+	  		\O"ver*lord`\, n. One who is lord over another 
+	  		or others; a superior lord; a master.
+	    </cite>
+	    </div>
+	    
+	    <p>
+	  		Overlord is a project aggregator; essentially a portal into the Java 
+	  		opensource project world. While non-Maven projects can use 
+	  		it, Maven plugins will be leveraged to make it dead simple for 
+	  		Mavenized projects.
+  		</p>
+  	</section>
+
+    <section name="Links">
+	    <ul>
+    		<li><a href="design.html">Design Documentation</a></li>
+    		<!--li><a href="musings.html">Musings</a></li-->
+    		<li><a href="features.html">Features / Musings</a></li>    		
+    		<li><a href="problems.html">Problems discovered in Maven</a></li>
+    		
+    	</ul>
+    </section>
+    
+    
+    <section name="Systems">
+    
+      <ul>
+    	<li>
+    		<a href="http://overlord.walding.com/">Active Overlord </a>
+    	</li>
+      </ul>    	
+    	
+    </section>
+    
+    
+
+
+  </body>
+</document>

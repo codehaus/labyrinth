@@ -1,0 +1,71 @@
+Xara 3D
+Version : 4.0
+Background (HSV) : 210 100 40
+Shadow colour (HSV) : 0 0 0
+Background (HSV0) : 2100 1000 400
+Shadow colour (HSV0) : 0 0 0
+Light 1 (HSV) : 23 84 55 41 -162
+Light 1 (HSV0) : 233 836 549 41 -162
+Lighting 1 : 233 836 549 41.2641 -162.284
+Light 2 (HSV) : 43 58 84 18 -112
+Light 2 (HSV0) : 427 581 843 18 -112
+Lighting 2 : 427 581 843 18 -112
+Light 3 (HSV) : 60 29 94 -15 76
+Light 3 (HSV0) : 600 292 941 -15 76
+Lighting 3 : 600 292 941 -15.493 75.5633
+Observer : 38880000 1 -34
+Observer2 : 0
+Size : 32
+Animation : 24 0 1
+Animation type : 0
+Frames per second : 10
+Pause : 0
+Loop : 0 1
+Axis : 0
+Animated : 0
+Text animation : 1
+Light animation : 0
+Minimum text size : 50
+Grow : 0
+Swing : 90 0 0
+Swing angle option : 1
+Fade : 1 0
+Frame duration : 50
+Shadow : 0 5 -5
+Shadow style : 0
+Shadow transparency : 75
+Shadow blur : 10
+Shadow plane : 8388608
+Button : 0 1 200 75
+Button corners : 1
+Button gloss : 1
+Button bevel : 7 100
+Button extrude : 1 0
+Button text colour : 0 0 0
+Button colours : 450 500 1000 450 500 800
+Button text scale : 1000 0 0 0
+Compact : 0
+Tint : 0
+Text texture scaling : 69 0 -19 -45
+Text texture scale : 690 0 -190 -450
+Texture offsets : 0 0
+Text texture : 1 1 \\phoenix\apps\Xara\Xara3D4\Textures\ripple4.jpg
+Texture : 0
+Text : Overlord
+Text (UNICODE) : Overlord
+Text colour (HSV) : 55 52 100
+Text colour (HSV0) : 550 522 1000
+Font name : Arial Black
+Font attributes : 100 0 0
+Justify : 1
+Line spacing : 80
+Character spacing : 0
+Outline : 0 30
+Outline width : 25
+Gloss : 1
+Extrude : 50 1 0 1
+Bevel : 7 30
+Bevel depth : 25
+Fancy text : \{FOArial Black}\{OW25}\{ED50}\{BF0}\{BD25}\{BT7}\{CR1}\{CL055005221000}O
+Fancy text : verlord
+Text texture data : BÇá}({Ögw×+Ne{!!ª!+"møÃ*ì&o|:}L%T,Ö4ÚSm{î{«QP¨Õ(KDÀVæºÜ»ÕÓ:©ê*´7îas{Qe³Òv#ËWª0¶CojØx¨×Ë}p¨>Ùa3xýF"®$âSoÑþ{LRµ%KD±H%×e°Ë9nRä¬À2XD¸gG×e°Ë9nRä¬À2XD¸gG×e°Ë9nRä¬À2XD¸gG×e°Ë9p7;Nâ#/\ØÅå#Ò!_,¹d!QÄz¬!@!Þ#Ð&W,¶7A!!!!!!!!!S,;NwÑK"A$Õ(*«4ßc!_,Øda!0|ª$À&!!Cí±7Q!ÌNØ"P8É|¨Vk(á7ú­ÞVC×-'&~Ô%Ó¯E*ÕgUµìÑ+(wA¶gÊ=rq';l(Ë3áGyq/*½>æræ=2ÞÄÁÌ]PÆ7kÇ9ûh1*¯¶´I¸s'òÄë±41_có#fÌQÙ±a?bc#ÚW>k²;Á÷[[ÁQhPÞÖÉ2¬^^RóGéÚÕd°`?«¹ºbnú9tüð°éï×n·4SÝÄScìKzwhø°õýý\%º-¨dCNe{Ê!l"à#!!!!!!E{+"ª$ê*k:5_IY¶º5$Î{k"À&U,U=CN}7gÑB{k"ó85/eª×7J=WOìËù8Æ"bY3«a3«HD×î=o0ìêo?þ7­.â:G%à)Û;xY¸ÀöÆr}(Sß,b98S/±QW"Â°sR?ñà[Ç#iåÜYÁ,½Åi|+f¹îÑD~@*ÿ8U\EIµÇ}ëÅÙÎ¶7Sí³)LÇ¶#]¶@í`FËCrÅ(Ý;Gm°2|Ç;îÅß:Äëf.áÎLÀÎ¼ùñõGï1íÙááÐHº·ý|GM¨Ë!Þ#¼)e!Ö#ÎcJ«KN>=ì!¿º°$y{O/ä"%Zg()Q­>9-BÀªQ¾º//v{[YØ"MN8(ò!~=È$)¼Ö/1ªÎ·H,aÊåÌ~í¿Ã©ipöhMÞbìMYjÉÐE,Uz´÷)7ëAz75cÞú¸z[Ýè}ñ2ÖeQ³þòælÄ7«¸sk'6{Óó-ÀÕ9ÓA¾TÎD<Ôíô³B)©H-}oB°KAM»z;ËkDjáôTÐúîyÏÞmuj7¸ü]ü¿cCywÐÖl}kèqx-äã`!Úwsa@¯d®xçÐëúf9(>#Nkòá#s*B÷56õ`8iÏnÊaäû%ÌpcäZí}÷8ÄËgOÞn-ìQö:PjDºE,Uz´÷)7ëAz75cÞú¸z[ÝMxj7°ümüt6¬ywÐck¨k!·a½n7aÊçùzj¿Ã@Ý]åÑ)L·r®G!Jýªò×ñTôiï³ùvy2,x´ã­~à¸&Eäp¸Vê¾¾_êf!}ü¾wÜêýâ\¾Bp×=#xÔ!WÇrRp²~q=>Ó6A4l[T9ÈhþTû®çÛÔA^àHpz>Øo¶ÎíT?îAåh«þ4Ê$ñç&ã:hÿÙÊ>Ó¨>S^à0'M°~qY½ü±EV&øoãø©7/lBãX[yÃw)sß¾º~ÛX2!òÒMB{[37´5H^ã"YÆCÚñâ|¾µqz>úpÞ/¬|ÿh©²åDáÀò3¸5H^`9êQ#Ød³}NNVLõ=Ø¬ZP{|×©²ð,#Y.Þ´dWLýùnðÛÞB°`¬ÀÂ@-q9&ë?RBpx>Ö21Æ"×Xg·&Ûì#±¹¼3HÏ+àèPýAò.ñÇõ]õ´ñ­Dr~[À\ÖÝP[7ÝM-K÷±Æ1×ÎåvU+Û÷:vXmJ»d¸hq`²h<aObKk7°ümüzæp¹wÏüëËÜXs-Ì"×Xg·&Ûì#±¹¼3HÏ+àèPýAò.ñÇõ]õ´ñ­Dr~[À\ÖÝP[7ÝM-K÷±Æ1×ÎåvU+Û÷:vXmJ»d¸hq`²h<aObKk7°ümüzæp¹wÏüëËÜXs-Ì"×«ÁÝyhöYõÙî¹ÇaS©6´PXHÝIfÏ%KSdÄØü´öíèê4O]GÞÂlËDú4{êÛªX$ÛÊ¯SÛf»¹î1qû¯åÔáKïwv{ÈuEý2NBÜKý4½+=~M/î©DÒÞµÈÅÝÿMØs(¾aOjM~3;ÛV÷É!Ez²÷Á5nM*úZU@²Í·¨º@¯öý6Ä4=Ó+Aù2Þêq+È»&s÷TÊRï_ù2Þt[E»¸çüýGzSýÑmßM&w3×©²ô´L¶ÿMWÉ,Èé^tØ©²¶µe&¯!¯ý³÷ï÷ãj©ü2Þ­Q'¾[ÑÐÛôý>ÀV¶óÐi\'¾¶Ö#Lq%9ú`ÊýÌ½Sëñ©²W=+=Z#ÂvEý2NBÜKý4½+=~M/î©DÒÞµÈÅÝÿMØs(¾aOjM~3;ÛV÷É!Ez²÷Á5nM*úZU@²Í·¨ºb¬¨ü2Þ«$aO®9+!|«I!ð>ì!ÀÁ°$}ÀO/ô»%ZÀ©+Q~7C-*{ÒQ5!ø/r!à\Ø"O\8(úY~=àP*¼âò>4!!!!!!

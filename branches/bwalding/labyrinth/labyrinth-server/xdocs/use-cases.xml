@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<document>
+
+  <properties>
+    <title>Overlord</title>
+    <author email="bwalding@apache.org">Ben Walding</author>
+  </properties>
+
+  <body>
+  	
+  	<section name="Add a new project">
+  		<p>
+	  		Overlord is a project aggregator; essentially a portal into the Java 
+	  		opensource project world. While non-Maven projects can use 
+	  		it, Maven plugins will be leveraged to make it dead simple for 
+	  		Mavenized projects.
+  		</p>
+  	</section>
+
+    <section name="Use Case: Refresh a project">
+    	<subsection name="Used by">
+          <ul>
+    	    <li>Clients</li>
+		    <li>Scheduler</li>
+  	      </ul>
+  	      
+		</subsection>
+    </section>
+    
+    
+    <section name="Demonstration Systems">
+    
+      <ul>
+    	<li>
+    		<a href="prod/servlet/search">"Production" Overlord System</a>
+    	</li>
+    	<li>
+	    	<a href="devl/servlet/index">Development Overlord System</a>
+	    </li>
+	  </ul>    	
+    	
+    </section>
+    
+    
+
+
+  </body>
+</document>

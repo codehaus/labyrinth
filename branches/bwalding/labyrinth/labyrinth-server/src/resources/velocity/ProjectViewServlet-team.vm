@@ -1,0 +1,51 @@
+<br/>
+   
+<div class="h3">
+<h3>Developers</h3>   	
+#if ($project.MavenProject.Developers.size() > 0)
+${rowtoggler.reset()}
+<table style="margin-top: 10px; margin-left: 10px; border: 1px solid black">
+	<tr class="$rowtoggler.Next">
+		<th>Name</th>
+		<th>ID</th>
+		<th>Email</th>
+		<th>Organisation</th>
+	</tr>
+	#foreach ($dev in $project.MavenProject.Developers)
+	<tr class="$rowtoggler.next">
+		<td>$dev.Name</td>
+		<td>$dev.Id</td>
+		<td><a href="mailto:$dev.Email">$!dev.Email</a></td>
+		<td>$dev.Organization</td>
+	</tr>
+	#end
+</table>
+#else
+	<div style="margin: 10px 10px 0px 0px">No Developers listed</div>
+#end
+
+
+<h3>Contributors</h3>   
+#if ($project.MavenProject.Contributors.size() > 0)
+${rowtoggler.reset()}
+<table style="margin-top: 10px; margin-left: 10px; border: 1px solid black">
+	<tr class="$rowtoggler.Next">
+		<th>Name</th>
+		<th>ID</th>
+		<th>Email</th>
+		<th>Organisation</th>
+	</tr>
+	#foreach ($dev in $project.MavenProject.Contributors)
+	<tr class="$rowtoggler.next">
+		<td>$!dev.Name</td>
+		<td>$!dev.Id</td>
+		<td><a href="mailto:$dev.Email">$!dev.Email</a></td>
+		<td>$dev.Organization</td>
+	</tr>
+	#end
+</table>
+#else
+	<div style="margin: 10px 10px 0px 0px">No Contributors listed</div>
+#end
+
+</div>
