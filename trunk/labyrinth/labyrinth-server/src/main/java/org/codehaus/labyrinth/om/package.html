@@ -1,0 +1,8 @@
+While the object mapping objects implement Serviceable, they are not
+managed by the Avalon container.  The components need to be able to
+access the container to get hold of their peer objects which allow them 
+to save, load and access other parts of the system.
+
+It may turn out that this is better done by using a singleton. I just hate
+singletons as they are the bane of my existence when it comes to multiple classloaders
+ala virtually any servlet engine.

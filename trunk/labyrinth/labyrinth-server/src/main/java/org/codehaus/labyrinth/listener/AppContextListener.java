@@ -37,7 +37,7 @@ public class AppContextListener implements ServletContextListener
         ServletContext context = sce.getServletContext();
 
         context.log("Initializing Plexus...");
-        InputStream is = AppContextListener.class.getResourceAsStream("plexus-config.xml");
+        InputStream is = context.getResourceAsStream("/WEB-INF/plexus.xml");
         if (is == null)
         {
             context.log("Plexus configuration not found");
