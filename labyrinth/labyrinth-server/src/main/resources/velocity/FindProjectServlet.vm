@@ -1,0 +1,28 @@
+#includeHeader()
+
+
+SM: $serviceManager
+
+asd
+
+
+<form method="POST" action="FindProjectServlet">
+
+	<input type="hidden" name="id" value="$!project.Id"/>
+	
+	
+##	<input name="projectCode" value="$!project.projectCode"/>
+##	<input name="url" value="$!project.Url"/>
+	<input type="submit" value="Search"/>
+</form>
+
+<a href="ManageProjectServlet">Add new project</a>
+
+<table>
+#foreach ($project in $projects)
+	<tr><td><a href="ViewProjectServlet?id=$project.id">$project.projectCode</a></td></tr>
+#end
+</table>
+
+
+#includeFooter()

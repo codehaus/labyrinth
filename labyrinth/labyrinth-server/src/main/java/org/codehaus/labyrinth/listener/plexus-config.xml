@@ -57,6 +57,11 @@
       <implementation>org.codehaus.labyrinth.components.DefaultPersistenceComponent</implementation>
       <configuration/>
   	</component>
+  	<component>
+  	  <role>org.codehaus.labyrinth.om.peers.ProjectPeer</role>
+      <implementation>org.codehaus.labyrinth.om.peers.DefaultProjectPeer</implementation>
+      <configuration/>
+  	</component>
   </components>
 
     

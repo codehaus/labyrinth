@@ -3,8 +3,6 @@ package org.codehaus.labyrinth.components;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Properties;
 
 import net.sf.hibernate.Hibernate;
@@ -76,7 +74,7 @@ public class DefaultPersistenceComponent implements PersistenceComponent, Servic
 
         session = sessionFactory.openSession();
         generateSchema();
-        
+
     }
 
     private Properties getHibernateDBProperties()
@@ -223,4 +221,6 @@ public class DefaultPersistenceComponent implements PersistenceComponent, Servic
             throw new RuntimeException(e);
         }
     }
+
+    
 }

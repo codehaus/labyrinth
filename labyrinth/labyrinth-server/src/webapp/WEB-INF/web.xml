@@ -25,7 +25,12 @@
             <servlet-class>org.codehaus.labyrinth.servlets.ContainerStatusServlet</servlet-class>
     </servlet>
     
-     <servlet>
+    <servlet>
+            <servlet-name>FindProjectServlet</servlet-name>
+            <servlet-class>org.codehaus.labyrinth.servlets.FindProjectServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
             <servlet-name>ManageProjectServlet</servlet-name>
             <servlet-class>org.codehaus.labyrinth.servlets.ManageProjectServlet</servlet-class>
     </servlet>
@@ -75,6 +80,11 @@
     <servlet-mapping>
       <servlet-name>ContainerStatusServlet</servlet-name>
       <url-pattern>/servlets/ContainerStatusServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+      <servlet-name>FindProjectServlet</servlet-name>
+      <url-pattern>/servlets/FindProjectServlet</url-pattern>
     </servlet-mapping>
     
     <servlet-mapping>
