@@ -5,3 +5,11 @@
 #macro (includeFooter)
 #parse ("velocity/footer.vm")
 #end
+
+#macro (tab $text $tab $selected $href)
+	#if ($tab == $selected)
+          <th title="View $text">$text</th>
+    #else
+          <td title="View $text"><a href="$href">$text</a></td>
+    #end
+#end

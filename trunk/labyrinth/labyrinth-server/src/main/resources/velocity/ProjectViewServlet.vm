@@ -12,7 +12,6 @@
     #else
           <td title="View $text"><a href="$href">$text</a></td>
     #end
-    
 #end
 
 

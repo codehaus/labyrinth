@@ -40,7 +40,7 @@ public class ContainerStatusServlet extends LabyrinthServlet {
         throws Exception {
         Project p = new Project();
         p.setId(new Integer(1));
-        p.setProjectId("labyrinth");
+        p.setProjectCode("labyrinth");
         vcontext.put("project", p);
         return getTemplate("velocity/ContainerStatusServlet.vm");
     }

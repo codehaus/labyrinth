@@ -1,0 +1,46 @@
+#set ($title = "Project View - $project.ArtifactId")
+#includeHeader()
+#set ($artifactId = $project.ArtifactId)
+
+
+
+        <div class="tabs">
+          <table cellpadding="3" cellspacing="0" border="0">
+            <tr>
+              #tab ("Overview" "overview" $tab "ViewProjectServlet?id=$project.id&amp;tab=overview")
+              #tab ("Issues" "issues" $tab "ViewProjectServlet?id=$project.id&amp;tab=issues")
+              ##tab ("Licensing" "license" $tab "projectview?artifactId=$artifactId&amp;tab=license")
+              ##tab ("Dependencies" "dependencies" $tab "projectview?artifactId=$artifactId&amp;tab=dependencies")
+              ##tab ("Team" "team" $tab "projectview?artifactId=$artifactId&amp;tab=team")
+              ##tab ("Resources" "resources" $tab "projectview?artifactId=$artifactId&amp;tab=resources")
+              ##tab ("All" "all" $tab "projectview?artifactId=$artifactId&amp;tab=all")
+            </tr>
+          </table>
+        </div>
+      
+      	#if ($tab == "overview" || $tab == "all")
+      		#parse ("velocity/ViewProjectServlet-overview.vm")
+      	#end
+      	
+      	#if ($tab == "issues" || $tab == "all")
+      		#parse ("velocity/ViewProjectServlet-issues.vm")
+      	#end
+      	
+      	#if ($tab == "license" || $tab == "all")
+      		#parse ("velocity/ViewProjectServlet-license.vm")
+      	#end
+      	
+      	#if ($tab == "dependencies" || $tab == "all")
+      		#parse ("velocity/ProjectViewServlet-dependencies.vm")
+      	#end
+      	
+      	#if ($tab == "team" || $tab == "all")
+      		#parse ("velocity/ProjectViewServlet-team.vm")
+      	#end
+      	
+      	#if ($tab == "resources" || $tab == "all")
+      		#parse ("velocity/ProjectViewServlet-resources.vm")
+      	#end
+
+<a href="ManageProjectServlet?id=$project.Id">Edit</a>
+#includeFooter()

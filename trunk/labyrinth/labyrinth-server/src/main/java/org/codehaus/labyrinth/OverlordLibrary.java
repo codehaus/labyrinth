@@ -29,7 +29,7 @@ public class OverlordLibrary
 
                 BaseProject pf1 = (BaseProject) o1;
                 BaseProject pf2 = (BaseProject) o2;
-                return pf1.getProjectId().compareTo(pf2.getProjectId());
+                return pf1.getProjectCode().compareTo(pf2.getProjectCode());
             }
         };
 

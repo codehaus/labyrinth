@@ -6,63 +6,61 @@ package org.codehaus.labyrinth;
 public class OverlordEngine
 {
     private static final OverlordEngine instance = new OverlordEngine();
-  private OverlordStore store;
-  private OverlordLibrary library;
-//  private OverlordLicense license;
-  public static final String KEY = "OverlordEngine";
-  public OverlordEngine()
-  {
-    try
+    private OverlordStore store;
+    private OverlordLibrary library;
+    //  private OverlordLicense license;
+    public static final String KEY = "OverlordEngine";
+    public OverlordEngine()
     {
-//      store = new OverlordStore();
-//      license = new OverlordLicense(getClass().getResourceAsStream("repository-audit.xml"));
+        try
+        {
+            //      store = new OverlordStore();
+            //      license = new OverlordLicense(getClass().getResourceAsStream("repository-audit.xml"));
+        }
+        catch (Exception e)
+        {
+            throw new RuntimeException(e);
+        }
     }
-    catch (Exception e)
+
+    //  public OverlordStore getStore()
+    //  {
+    //    return store;
+    //  }
+    //  
+    //  public OverlordLibrary getLibrary()
+    //  {
+    //    return library;
+    //  }
+    //  
+
+    //  public void setLibrary(OverlordLibrary library)
+    //  {
+    //    this.library = library;
+    //  }
+
+    //  public OverlordLicense getLicense()
+    //   {
+    //     return license;
+    //   }
+
+    private Projects projects;
+
+    /**
+     * @return
+     */
+    public Projects getProjects()
     {
-      throw new RuntimeException(e);
+        return projects;
     }
-  }
-  
- 
-//  public OverlordStore getStore()
-//  {
-//    return store;
-//  }
-//  
-//  public OverlordLibrary getLibrary()
-//  {
-//    return library;
-//  }
-//  
-  
 
-//  public void setLibrary(OverlordLibrary library)
-//  {
-//    this.library = library;
-//  }
-  
-//  public OverlordLicense getLicense()
-//   {
-//     return license;
-//   }
-  
-  private Projects projects;
-
-/**
- * @return
- */
-public Projects getProjects()
-{
-    return projects;
-}
-
-/**
- * @param projects
- */
-public void setProjects(Projects projects)
-{
-    this.projects = projects;
-}
+    /**
+     * @param projects
+     */
+    public void setProjects(Projects projects)
+    {
+        this.projects = projects;
+    }
 
     /**
      * @return

@@ -11,7 +11,6 @@ import org.apache.avalon.framework.service.ServiceManager;
 import org.apache.velocity.Template;
 import org.apache.velocity.context.Context;
 import org.codehaus.labyrinth.DatabaseException;
-import org.codehaus.labyrinth.ORLayer;
 import org.codehaus.labyrinth.components.PersistenceComponent;
 import org.codehaus.labyrinth.om.Project;
 
@@ -26,22 +25,23 @@ public class ManageProjectServlet extends LabyrinthServlet
     /* (non-Javadoc)
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
      */
-    public void doPost(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException
+    public void doPost(HttpServletRequest request, HttpServletResponse arg1) throws ServletException, IOException
     {
         try
         {
-            Project p = getProject(arg0);
+            Project p = getProject(request);
             if (p == null)
             {
                 p = new Project();
             }
             LOGGER.info("saving");
-            p.setUrl(arg0.getParameter("url"));
+            p.setUrl(request.getParameter("url"));
+            p.setProjectCode(request.getParameter("projectCode"));
 
-            ServiceManager sm = LabyrinthServlet.getServiceManager(arg0.getSession().getServletContext());
+            ServiceManager sm = LabyrinthServlet.getServiceManager(request.getSession().getServletContext());
             PersistenceComponent pm = (PersistenceComponent) sm.lookup(PersistenceComponent.ROLE);
             pm.save(p);
-            arg1.sendRedirect("ManageProjectServlet?id=" + p.getId());
+            arg1.sendRedirect("ViewProjectServlet?id=" + p.getId());
         }
         catch (Exception e)
         {
@@ -56,23 +56,14 @@ public class ManageProjectServlet extends LabyrinthServlet
     protected Template handleRequestInternal(HttpServletRequest arg0, HttpServletResponse arg1, Context vcontext)
         throws Exception
     {
-        String idString = arg0.getParameter("id");
-        Integer id = null;
-        Project p = null;
-        if (idString != null)
-        {
-            id = new Integer(idString);
-            ServiceManager sm = LabyrinthServlet.getServiceManager(arg0.getSession().getServletContext());
-            PersistenceComponent pm = (PersistenceComponent) sm.lookup(PersistenceComponent.ROLE);
-            p = (Project) pm.load(Project.class, id);
-        }
+        Project p = getProject(arg0);
 
         vcontext.put("project", p);
 
         return getTemplate("velocity/ManageProjectServlet.vm");
     }
 
-    private Project getProject(HttpServletRequest arg0) throws DatabaseException, ServiceException
+    public static Project getProject(HttpServletRequest arg0) throws DatabaseException, ServiceException
     {
         String idString = arg0.getParameter("id");
         Integer id = null;

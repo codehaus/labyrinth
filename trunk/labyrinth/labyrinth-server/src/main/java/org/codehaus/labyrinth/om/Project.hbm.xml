@@ -8,6 +8,7 @@
     <id name="id" type="int" column="rfLProject">
       <generator class="native"/>
     </id>
+    <property not-null="true" name="projectCode" column="txProjectCode"/>
     <property not-null="true" name="url" column="txUrl"/>
   </class>
 </hibernate-mapping>

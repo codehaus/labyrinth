@@ -34,7 +34,7 @@ public class Overlord
 
         Projects projects = (Projects) prevayler.system();
         Project p = new Project();
-        p.setProjectId("" + projects.getProjects().size());
+        p.setProjectCode("" + projects.getProjects().size());
 
         AddProject cmd = new AddProject(p);
         prevayler.executeCommand(cmd);
@@ -43,7 +43,7 @@ public class Overlord
         while (iter.hasNext())
         {
             BaseProject p2 = (BaseProject) iter.next();
-            System.out.println("Project: " + p2.getProjectId());
+            System.out.println("Project: " + p2.getProjectCode());
         }
 
         stopPrevayler();

@@ -11,6 +11,7 @@ asd
 	<input type="hidden" name="id" value="$!project.Id"/>
 	
 	
+	<input name="projectCode" value="$!project.projectCode"/>
 	<input name="url" value="$!project.Url"/>
 	<input type="submit" value="Update"/>
 </form>

@@ -14,6 +14,10 @@
          	value="org.apache.velocity.runtime.resource.loader.FileResourceLoader"
          	type="java.lang.String" override="false"/>
          
+		 <Environment name="velocity.velocimacro.library"
+         	value="velocity/macro.vm"
+         	type="java.lang.String" override="false"/>
+        
          <Environment name="velocity.class.resource.loader.class"
          	value="org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader"
          	type="java.lang.String" override="false"/>
