@@ -1,0 +1,38 @@
+<project default="java:jar"
+  xmlns:j="jelly:core"
+  xmlns:m="maven"
+  xmlns:ant="jelly:ant"
+  xmlns:deploy="deploy">
+
+  	<preGoal name="war:war">
+		<copy todir="target/classes">
+  			<fileset dir="src/resources">
+  				<include name="**/*"/>
+  			</fileset>
+  		</copy>
+   	</preGoal>
+  	
+  	<postGoal name="war">
+  		<property name="env.name" value="devl"/>
+		<property name="env.file" value="metadata/${env.name}.env.properties"/>
+		<copy file="src/metadata/${pom.artifactId}.xml" todir="target">
+			<filterchain><expandproperties/></filterchain>
+		</copy>
+  	</postGoal>
+  	
+  	
+  	<goal name="war:deploy" prereqs="war">
+  		<copy file="target/${pom.artifactId}.xml" todir="D:\java\jakarta-tomcat-4.1\webapps"/>
+  		<copy file="target/${pom.artifactId}.war" todir="D:\java\jakarta-tomcat-4.1\webapps"/>
+  	</goal>
+  	
+  	<goal name="war:deployprod" prereqs="war">
+       <exec dir="." executable="${maven.scp.executable}">
+		  <arg line="target/overlord.war atlas.walding.com:/home/tomcat/jakarta-tomcat-4.1/wars"/>
+        </exec>
+    </goal>
+
+  	<goal name="serverxml" prereqs="war">
+		<ant:copy tofile="d:\java\jakarta-tomcat-4.1\webapps\labyrinth.xml" file="labyrinth.xml"/>
+    </goal>  	
+</project>

@@ -1,0 +1,24 @@
+<Context path="/overlord" docBase="overlord.war" debug="0">
+
+  <Logger 
+  	className="org.apache.catalina.logger.FileLogger"
+    prefix="overlord_log." suffix=".txt" timestamp="true"/>
+
+  <Environment name="velocity.file.resource.loader.path"
+    value="D:/data/workspace/overlord/src/resources"
+    type="java.lang.String" override="false"/>
+ 	
+ 
+  <Environment name="velocity.resource.loader"
+    value="file,class"
+    type="java.lang.String" override="false"/>
+    
+  <Environment name="velocity.velocimacro.library"
+    value="velocity/macro.vm"
+    type="java.lang.String" override="false"/>
+    
+  <Environment name="velocity.velocimacro.library.autoreload"
+    value="true"
+    type="java.lang.String" override="false"/>
+
+</Context>
