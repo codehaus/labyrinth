@@ -21,6 +21,7 @@ import org.apache.avalon.framework.service.ServiceManager;
 import org.apache.avalon.framework.service.Serviceable;
 import org.codehaus.labyrinth.DatabaseException;
 import org.codehaus.labyrinth.om.Block;
+import org.codehaus.labyrinth.om.LabyrinthInterceptor;
 import org.codehaus.labyrinth.om.Project;
 import org.codehaus.labyrinth.om.ProjectBlock;
 import org.codehaus.labyrinth.om.ProjectBlockProperty;
@@ -78,8 +79,8 @@ public class DefaultPersistenceComponent implements PersistenceComponent, Servic
         hcfg.addClass(ProjectBlockProperty.class);
 
         sessionFactory = hcfg.buildSessionFactory();
-
-        session = sessionFactory.openSession();
+        LabyrinthInterceptor interceptor = (LabyrinthInterceptor) serviceManager.lookup(LabyrinthInterceptor.ROLE);
+        session = sessionFactory.openSession(interceptor);
         generateSchema(false, false);
 
     }
@@ -116,7 +117,7 @@ public class DefaultPersistenceComponent implements PersistenceComponent, Servic
         return session;
     }
 
-    public void generateSchema(boolean drop,boolean create) throws HibernateException
+    public void generateSchema(boolean drop, boolean create) throws HibernateException
     {
         LOGGER.info("Loading schema");
         SchemaExport se = new SchemaExport(hcfg);
@@ -273,7 +274,7 @@ public class DefaultPersistenceComponent implements PersistenceComponent, Servic
         pbpDFJIRA.setValue(
             "http://jira.codehaus.org/secure/IssueNavigator.jspa?pid=10190&resolutionIds=-1&sorter/field=lastupdated&sorter/order=DESC&tempMax=500&view=rss&reset=true");
         save(pbpDFJIRA);
-        
+
         ProjectBlockProperty pbpMAVENJIRA = new ProjectBlockProperty();
         pbpMAVENJIRA.setProjectBlockId(pbDFJIRA.getId());
         pbpMAVENJIRA.setName("all.url");
